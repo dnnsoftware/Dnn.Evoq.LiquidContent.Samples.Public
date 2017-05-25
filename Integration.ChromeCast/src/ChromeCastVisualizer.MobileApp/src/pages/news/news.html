@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <ion-icon style="float:right;" name="refresh" (click)="refresh()"></ion-icon>
+      News
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>Here your news</ion-list-header>
+    <ion-item ion-item *ngFor="let new of news">
+      <ion-thumbnail item-left>
+        <img src="{{new.details.image[0].url}}">
+      </ion-thumbnail>
+      <h2>{{new.details.title}}</h2>
+      <p>{{new.details.summary}}</p>
+      <button ion-button clear item-right (click)="viewNewDetail(new)">View</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

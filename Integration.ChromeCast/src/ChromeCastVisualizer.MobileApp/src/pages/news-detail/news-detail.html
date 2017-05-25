@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <span class="cast" [hidden]="!deviceFound" (click)="cast()">
+        <img src="https://juga.tv/landings/img/icon-chromecast.svg"/>
+      </span>
+      News Detail
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div [innerHTML]="previewHtml | safeHtml" ></div>
+</ion-content>

@@ -1,0 +1,62 @@
+html, body { 
+    height: 100%
+}
+
+#lc-title { 
+    margin: 0px 50px;
+    padding: 32px 0px;
+    font-size: 40px;
+    font-weight: bold;
+    color: midnightblue 
+}
+
+#lc-footer { 
+    margin: 0px 50px; 
+    padding: 0px;
+    font-size: 20px;
+    text-align: right;
+    font-weight: bold;
+    color: #222 
+}
+
+#lc-message { 
+    height: calc(100% - 80px);
+    overflow: hidden;
+    background: white;
+    margin: 25px 50px 10px 50px;
+    padding: 25px;
+    border-radius: 3px; 
+}
+
+#lc-message * { 
+    max-width: 100% 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: -webkit-linear-gradient(right, #00c5ff, #0ff27c, #e99ef5, #eff59e);
+    background: -o-linear-gradient(right, #00c5ff, #0ff27c, #e99ef5, #eff59e);
+    background: linear-gradient(to left, #00c5ff, #0ff27c, #e99ef5, #eff59e);
+    background-size: 800% 800%;
+
+    -webkit-animation: AnimationName 42s ease infinite;
+    -moz-animation: AnimationName 42s ease infinite;
+    animation: AnimationName 42s ease infinite;
+}
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 91%}
+    50%{background-position:100% 10%}
+    100%{background-position:0% 91%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 91%}
+    50%{background-position:100% 10%}
+    100%{background-position:0% 91%}
+}
+@keyframes AnimationName { 
+    0%{background-position:0% 91%}
+    50%{background-position:100% 10%}
+    100%{background-position:0% 91%}
+}
