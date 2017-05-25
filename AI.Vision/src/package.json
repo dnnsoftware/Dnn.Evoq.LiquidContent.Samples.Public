@@ -1,0 +1,9 @@
+{
+  "name": "content-items-auto-tagging",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "request": "^2.79.0"
+  }
+}
