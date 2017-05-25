@@ -16,9 +16,9 @@ Some images of the game:
 
 ![1 game image](images/1-game-image.png)
 
-![2 game image](images/2 game image.png)
+![2 game image](images/2-game-image.png)
 
-![3 game image](images/3 game image.png)
+![3 game image](images/3-game-image.png)
 
 
 # Prerequisites
@@ -77,7 +77,7 @@ Importing these ZIP files, the associated types and visualizers for our game wil
 ## Reviewing the Game Types
 ### Stages
 
-![4 content type 1](images/4 content type 1.png)
+![4 content type 1](images/4-content-type.png)
 
 This type has three attributes (all required):
 
@@ -89,7 +89,7 @@ This type has three attributes (all required):
 
 ### User
 
-![5 content type 2](images/5 content type 2.png)
+![5 content type 2](images/5-content-type.png)
 
 User type has only two attributes:
 
@@ -108,7 +108,7 @@ To create a new level, we only have to follow these steps:
 3. Save 4 of them
 4. Create a new item:
 
-![6 content item 1](images/6 content item 1.png)
+![6 content item 1](images/6-content-item 1.png)
 
 
 # Communication with Liquid Content
@@ -124,17 +124,17 @@ In this scenario the game:
 
 So the game will do these requests to the Liquid Content API:
 
-![7 diagram 1](images/7 diagram 1.png)
+![7 diagram 1](images/7-diagram.png)
 
 These content types are cached, so this information is only retrieved once.
 
 After this the game shows a view to insert your user&#39;s nickname:
 
-![8 game image](images/8 game image.png)
+![8 game image](images/8-game-image.png)
 
 Once the nickname is inserted and tap on &quot;Create&quot; the following communication is done:
 
-![9 diagram](images/9 diagram.png)
+![9 diagram](images/9-diagram.png)
 
 This information is also cached by the game, so we will only have to introduce our user once.
 
@@ -142,7 +142,7 @@ This information is also cached by the game, so we will only have to introduce o
 
 Assuming that the game is already configured (previous section), the game makes this communication with the API:
 
-![10 diagram](images/10 diagram.png)
+![10 diagram](images/10-diagram.png)
 
 # Configuring Game
 
@@ -177,10 +177,10 @@ Corona Labs allows us to execute our game in a big number of platforms, in this 
 Once we have the framework installed, we have:
 
 1. to run the program &quot;Corona Simulator&quot;
-![11 desktop](images/11 desktop.png)
+![11 desktop](images/11-desktop.png)
 
 2. open out project (folder &quot;src&quot;).
-![12 game image](images/12 game image.png)
+![12 game image](images/12-game-image.png)
 
 ## Mobile/Tablet App
 
@@ -198,17 +198,17 @@ For do that we have to:
 
 * add a new page in EVOQ
 * add a new visualizer list with the best gamers:
-![13 visualizer](images/13 visualizer.png)
-![14 visualizer](images/14 visualizer.png)
-![15 visualizer](images/15 visualizer.png)
-![16 visualizer](images/16 visualizer.png)
+![13 visualizer](images/13-visualizer.png)
+![14 visualizer](images/14-visualizer.png)
+![15 visualizer](images/15-visualizer.png)
+![16 visualizer](images/16-visualizer.png)
 
 * add a new visualizer list with latest levels:
-![17 visualizer](images/17 visualizer.png)
-![18 visualizer](images/18 visualizer.png)
-![19 visualizer](images/19 visualizer.png)
-![20 visualizer](images/20 visualizer.png)
+![17 visualizer](images/17-visualizer.png)
+![18 visualizer](images/18-visualizer.png)
+![19 visualizer](images/19-visualizer.png)
+![20 visualizer](images/20-visualizer.png)
 
 Adding these two visualizers list, we get this result:
 
-![21 visualizer](images/21 visualizer.png)
+![21 visualizer](images/21-visualizer.png)
