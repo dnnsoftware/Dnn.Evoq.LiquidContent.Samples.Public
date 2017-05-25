@@ -14,7 +14,7 @@ Finally, thanks to the support of Liquid Content, we will also define a page for
 
 Some images of the game:
 
-![1 game image](images/1 game image.png)
+![1 game image](images/1-game-image.png)
 
 ![2 game image](images/2 game image.png)
 
