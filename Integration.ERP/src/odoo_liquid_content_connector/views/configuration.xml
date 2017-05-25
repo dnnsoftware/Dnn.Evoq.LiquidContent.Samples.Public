@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_connector_sc_configuration" model="ir.actions.act_window">
+        <field name="name">Liquid Content connector configuration</field>
+        <field name="res_model">connector_sc.configuration.backend</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+
+        <field name="help" type="html">
+            <p>Configuration</p>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="connector_sc_configuration_tree">
+        <field name="name">Configuration list</field>
+        <field name="model">connector_sc.configuration.backend</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <tree string="Configuration list">
+                <field name="name"/>
+                <field name="apiUrl"/>
+                <field name="apiVersion"/>
+                <field name="apiKey"/>
+                <field name="apiKeyOk"/>
+                <field name="productTypeId" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="connector_sc_configuration_form">
+        <field name="name">Configuration form</field>
+        <field name="model">connector_sc.configuration.backend</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+           <form string="Liquid Content Configuration Form">
+                <group colspan="4" col="3">
+                    <group colspan="1" col="2">
+                        <separator string="General" colspan="2"/>
+                        <field name="name" />
+                        <field name="version" />
+                        <field name="productTypeId" />
+                        <button string="Sync all products" type="object" name="sync_all_products" class="oe_highlight"/>
+                    </group>
+                    <group colspan="2" col="3">
+                        <separator string="API Info" colspan="3"/>
+                        <field name="apiUrl" colspan="2" />
+                        <button string="Test Url Connection" type="object" name="test_url_connection" class="oe_highlight"/>
+                        <field name="apiVersion" colspan="3" readonly="1" />
+                        <field name="apiKey" colspan="2" />
+                        <button string="Test API Key" type="object" name="test_api_key_connection" class="oe_highlight"/>
+                        <field name="apiKeyOk" colspan="3" readonly="1" />
+                    </group>
+                </group>
+           </form>
+        </field>
+    </record>
+</odoo>

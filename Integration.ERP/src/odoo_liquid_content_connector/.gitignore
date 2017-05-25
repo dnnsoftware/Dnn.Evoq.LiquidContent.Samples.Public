@@ -1,0 +1,5 @@
+#Python compiled files
+*.pyc
+
+# Idea IDE folder
+.idea

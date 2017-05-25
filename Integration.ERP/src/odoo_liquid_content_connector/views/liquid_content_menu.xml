@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_connector_sc_parent"
+        name="Liquid Content"
+        parent="connector.menu_connector_root" />
+
+    <menuitem id="menu_connector_sc_configuration"
+        parent="menu_connector_sc_parent"
+        name="Configuration"
+        action="action_connector_sc_configuration"
+        sequence="10"/>
+
+</odoo>
