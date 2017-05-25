@@ -18,14 +18,14 @@ In this example, we will use Evoq Liquid Content, REST APIs and VBA Script to bu
 - Some of the HR team members, they don't have access to Persona Bar
 - HR needs a way to update important fields (job information) without a waiting for IT department
 
-# Technologies Used
+## Technologies Used
 
 - Liquid Content APIs from Evoq Content or Evoq Engage
 - Excel VBA scripting
 - [JsonConverter] - JSON conversion and parsing for VBA 
 - [Dictionary.cls] - VBA-Dictionary is a drop-in replacement for the useful and powerful Scripting.Dictionary
 
-# Prerequisites
+## Prerequisites
 
 - A target website and obtain API Key of Liquid Content
   - This API Key shall have permission to read and write Content Types and Content Items
@@ -33,7 +33,7 @@ In this example, we will use Evoq Liquid Content, REST APIs and VBA Script to bu
 - Load JsonConverter.bas and Dictionary.cls in Excel micro
 
 
-# How to get Evoq Liquid Content APIKey
+## How to get Evoq Liquid Content APIKey
 
 1. Install Evoq Content or Evoq Engage ver.9.1.0+
 2. Log in as Host User
