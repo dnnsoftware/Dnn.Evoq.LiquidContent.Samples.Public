@@ -1,0 +1,160 @@
+/* Empty. Add your own CSS if you like */
+
+ion-content {
+    background: #f1f1f1;
+}
+
+.title {
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+ion-card {
+    float: left;
+    margin: 20px;
+    width: calc(100% - 40px);
+    transition: .6s;
+    background: white;
+    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, .2);
+    transition-delay: .4s;
+    opacity: 1;
+}
+
+ion-card img {
+    display: block;
+    width: 100%;
+}
+
+ion-header-bar.bar.bar-dark {
+    background: #000;
+}
+
+ion-card-content {
+    float: left;
+    padding: 20px;
+    position: relative;
+    padding-bottom: 60px;
+    width: 100%;
+}
+
+.new-item {
+    opacity: 0;
+    transform: translateY(30%);
+}
+
+ion-card-content p {
+    margin: 0 0 2px;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.5;
+    color: #222;
+}
+
+ion-card-title {
+    display: block;
+    margin: 2px 0;
+    padding: 8px 0 8px 0;
+    font-size: 2.4rem;
+    line-height: 1.2;
+    color: #222;
+    padding: 20px;
+}
+
+.scores {
+    text-align: right;
+    font-size: 30px;
+    font-weight: 600;
+    position: absolute;
+    right: -6px;
+    background: #f6574b;
+    color: white;
+    padding: 10px 20px;
+    bottom: 20px;
+    border-bottom: #a62e25 solid 2px;
+    border-top: #fa7d74 solid 1px;
+}
+
+.scores:after {
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    width: 0;
+    height: 0;
+    border-top: 6px solid #a62e25;
+    border-right: 6px solid transparent;
+    right: 0px;
+}
+
+.add-button {
+    background-color: #FFBD00;
+    position: absolute;
+    text-transform: uppercase;
+    bottom: 20px;
+    right: 10px;
+    color: white;
+    font-size: 76px;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    padding-left: 9px;
+    line-height: 50px;
+    cursor: pointer;
+    position: fixed;
+    transition: .6s;
+    z-index: 99;
+}
+
+.add-button:after {
+    position: absolute;
+    content: "";
+    width: 4px;
+    height: 40px;
+    background: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.add-button:before {
+    position: absolute;
+    content: "";
+    width: 40px;
+    height: 4px;
+    background: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.add-button:hover {
+    background-color: #face00;
+}
+
+ion-pane .form-pane {
+    position: fixed;
+    width: 100%;
+    background: #fff;
+    z-index: 9;
+    height: 100%;
+    transition: .6s;
+    top: 0px;
+    transform: translateX(110%);
+}
+
+ion-pane .form-pane .list {
+    margin-top: 44px;
+}
+
+ion-pane.show-form .form-pane {
+    left: 0%;
+    transform: translateX(0%);
+}
+
+ion-pane.show-form .add-button {
+    transform: rotate(-225deg);
+}
+
+.button-positive {
+    width: calc(100% - 80px);
+    margin: 20px 40px;
+}

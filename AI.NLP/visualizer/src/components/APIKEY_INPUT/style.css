@@ -1,0 +1,16 @@
+.APIKEY_INPUT {
+  width:100%;
+  background-color:#888;
+  padding:5px;
+  text-align:left;
+}
+
+.APIKEY_INPUT > input {
+  width:60%;
+  padding:5px;
+}
+
+.APIKEY_INPUT > button {
+  margin-left:20px;
+  padding: 5px;
+}

@@ -1,0 +1,24 @@
+{
+  "name": "visualizer",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "rxjs": "^5.4.0",
+    "striptags": "^3.0.1"
+  },
+  "devDependencies": {
+    "react-scripts": "0.9.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build && npm run remove-stuff && npm run move-assets && npm run move-index",
+    "remove-stuff": "rm -rf ../public/**",
+    "move-assets": "mv -f build/static/** ../public",
+    "move-index": "mv -f build/index.html ../views/index.ejs",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

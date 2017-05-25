@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Evoq.Modules", "Evoq.Modules", "{F670D4F4-0FFD-429B-983B-E7A39FA65819}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{12263031-E571-440E-B32D-CB8EA432957F}"
+	ProjectSection(SolutionItems) = preProject
+		Build\BuildScripts\Module.build = Build\BuildScripts\Module.build
+		Build\BuildScripts\Package.targets = Build\BuildScripts\Package.targets
+		Solution.build = Solution.build
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Evoq.Modules.LiquidContentJobs", "Modules\Evoq.Modules.LiquidContentJobs\Evoq.Modules.LiquidContentJobs.csproj", "{C12C2A8B-427A-4222-AF00-2A47E161CFA8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Cloud_Debug|Any CPU = Cloud_Debug|Any CPU
+		Cloud_Release|Any CPU = Cloud_Release|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C12C2A8B-427A-4222-AF00-2A47E161CFA8}.Cloud_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C12C2A8B-427A-4222-AF00-2A47E161CFA8}.Cloud_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C12C2A8B-427A-4222-AF00-2A47E161CFA8}.Cloud_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C12C2A8B-427A-4222-AF00-2A47E161CFA8}.Cloud_Release|Any CPU.Build.0 = Release|Any CPU
+		{C12C2A8B-427A-4222-AF00-2A47E161CFA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C12C2A8B-427A-4222-AF00-2A47E161CFA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C12C2A8B-427A-4222-AF00-2A47E161CFA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C12C2A8B-427A-4222-AF00-2A47E161CFA8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C12C2A8B-427A-4222-AF00-2A47E161CFA8} = {F670D4F4-0FFD-429B-983B-E7A39FA65819}
+	EndGlobalSection
+EndGlobal
