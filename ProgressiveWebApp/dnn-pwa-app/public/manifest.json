@@ -1,0 +1,21 @@
+{
+  "short_name": "dnn-pwa-app",
+  "name": "Dnn PWA app",
+  "permissions": [
+      "gcm"
+  ],
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon144.ico",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./",
+  "display": "standalone"
+}

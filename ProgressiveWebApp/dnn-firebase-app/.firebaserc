@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "dnn-firebase-app-2",
+    "dnn-firebase-app": "dnn-firebase-app",
+    "dnn-firebase-app-2": "dnn-firebas-app-2"
+  }
+}
