@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{E96BFDF1-831E-4C0F-9DC4-1E860EF69482}"
+	ProjectSection(SolutionItems) = preProject
+		EvoqSolution.build = EvoqSolution.build
+		SolutionInfo.cs = SolutionInfo.cs
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGetPackages", "NuGetPackages\NuGetPackages.csproj", "{5313F690-D9A3-40B1-908C-1F5A3F3EA683}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Evoq.StructuredContent.ChromeCastVisualizer", "StructuredContent.ChromeCastVisualizer\Evoq.StructuredContent.ChromeCastVisualizer.csproj", "{FAC40EAE-8B49-43AA-B6E5-CBEC7197B1CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Cloud_Debug|Any CPU = Cloud_Debug|Any CPU
+		Cloud_Release|Any CPU = Cloud_Release|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5313F690-D9A3-40B1-908C-1F5A3F3EA683}.Cloud_Debug|Any CPU.ActiveCfg = Cloud_Debug|Any CPU
+		{5313F690-D9A3-40B1-908C-1F5A3F3EA683}.Cloud_Debug|Any CPU.Build.0 = Cloud_Debug|Any CPU
+		{5313F690-D9A3-40B1-908C-1F5A3F3EA683}.Cloud_Release|Any CPU.ActiveCfg = Cloud_Release|Any CPU
+		{5313F690-D9A3-40B1-908C-1F5A3F3EA683}.Cloud_Release|Any CPU.Build.0 = Cloud_Release|Any CPU
+		{5313F690-D9A3-40B1-908C-1F5A3F3EA683}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5313F690-D9A3-40B1-908C-1F5A3F3EA683}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5313F690-D9A3-40B1-908C-1F5A3F3EA683}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5313F690-D9A3-40B1-908C-1F5A3F3EA683}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAC40EAE-8B49-43AA-B6E5-CBEC7197B1CB}.Cloud_Debug|Any CPU.ActiveCfg = Cloud_Debug|Any CPU
+		{FAC40EAE-8B49-43AA-B6E5-CBEC7197B1CB}.Cloud_Debug|Any CPU.Build.0 = Cloud_Debug|Any CPU
+		{FAC40EAE-8B49-43AA-B6E5-CBEC7197B1CB}.Cloud_Release|Any CPU.ActiveCfg = Cloud_Release|Any CPU
+		{FAC40EAE-8B49-43AA-B6E5-CBEC7197B1CB}.Cloud_Release|Any CPU.Build.0 = Cloud_Release|Any CPU
+		{FAC40EAE-8B49-43AA-B6E5-CBEC7197B1CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAC40EAE-8B49-43AA-B6E5-CBEC7197B1CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAC40EAE-8B49-43AA-B6E5-CBEC7197B1CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAC40EAE-8B49-43AA-B6E5-CBEC7197B1CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
