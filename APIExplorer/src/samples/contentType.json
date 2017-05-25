@@ -1,0 +1,83 @@
+{
+    "name": "Sample Type",
+    "fields": [
+        {
+            "type": "singleLineText",
+            "label": "Enter Some Text",
+            "required": true,
+            "description": "",
+            "descriptionActive": false,
+            "tooltip": "",
+            "tooltipActive": false,
+            "width": "full",
+            "position": "start",
+            "row": 0,
+            "settings": {
+                "subType": "singleLine"
+            },
+            "validation": {
+                "standardErrorMessage": "",
+                "requireField": {
+                    "active": false,
+                    "errorMessage": "This is a required field."
+                },
+                "numberOfCharacters": {
+                    "active": false,
+                    "rangeDefinition": "between",
+                    "minimum": null,
+                    "maximum": null,
+                    "errorMessage": "This field does not meet the required number of characters."
+                }
+            },
+            "defaultValue": "",
+            "setDefaultValueAsHidden": false
+        }
+    ],
+    "properties": {
+        "contentName": {
+            "type": "contentName",
+            "label": "Content Item Name",
+            "required": true,
+            "description": "",
+            "descriptionActive": false,
+            "tooltip": "",
+            "tooltipActive": false,
+            "settings": {
+                "nameGeneratorFields": []
+            }
+        },
+        "contentTags": {
+            "type": "contentTags",
+            "label": "Tags",
+            "required": true,
+            "description": "",
+            "descriptionActive": false,
+            "tooltip": "",
+            "tooltipActive": false,
+            "validation": {
+                "standardErrorMessage": "",
+                "requireField": {
+                    "active": false,
+                    "errorMessage": "This is a required field."
+                }
+            }
+        },
+        "contentDescription": {
+            "type": "contentDescription",
+            "label": "Description",
+            "required": true,
+            "description": "",
+            "descriptionActive": false,
+            "tooltip": "",
+            "tooltipActive": false,
+            "validation": {
+                "standardErrorMessage": "",
+                "requireField": {
+                    "active": false,
+                    "errorMessage": "This is a required field."
+                }
+            }
+        }
+    },
+    "enabled": true
+}
