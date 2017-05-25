@@ -93,7 +93,7 @@ It will immediately change header in the app:
 
 In your app.js add app variable  update code to look like this:
 
-![first launch](images/code.png)
+![code](images/code.png)
  
 add url constant - value is url of content item API
 
