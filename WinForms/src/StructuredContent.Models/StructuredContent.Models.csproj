@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{34D70FF5-DE4A-44EB-AE1F-8D0752264699}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StructuredContent.Models</RootNamespace>
+    <AssemblyName>StructuredContent.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ContentItem.cs" />
+    <Compile Include="ContentType.cs" />
+    <Compile Include="ContentTypeFields\Assets\AssetsField.cs" />
+    <Compile Include="ContentTypeFields\Assets\AssetsFormat.cs" />
+    <Compile Include="ContentTypeFields\Assets\AssetsSettings.cs" />
+    <Compile Include="ContentTypeFields\Assets\AssetsValidation.cs" />
+    <Compile Include="ContentTypeFields\ContentDescription\ContentDescriptionField.cs" />
+    <Compile Include="ContentTypeFields\ContentDescription\ContentDescriptionValidation.cs" />
+    <Compile Include="ContentTypeFields\ContentName\ContentNameField.cs" />
+    <Compile Include="ContentTypeFields\ContentName\ContentNameSettings.cs" />
+    <Compile Include="ContentTypeFields\ContentTags\ContentTagsField.cs" />
+    <Compile Include="ContentTypeFields\ContentTags\ContentTagsValidation.cs" />
+    <Compile Include="ContentTypeFields\ContentTypeField.cs" />
+    <Compile Include="ContentTypeFields\DateTime\DateFormat.cs" />
+    <Compile Include="ContentTypeFields\DateTime\DateTimeField.cs" />
+    <Compile Include="ContentTypeFields\DateTime\DateTimeFormat.cs" />
+    <Compile Include="ContentTypeFields\DateTime\DateTimeSettings.cs" />
+    <Compile Include="ContentTypeFields\DateTime\DateTimeValidation.cs" />
+    <Compile Include="ContentTypeFields\DateTime\TimeFormat.cs" />
+    <Compile Include="ContentTypeFields\MultiLineText\MultiLineTextField.cs" />
+    <Compile Include="ContentTypeFields\MultiLineText\MultiLineTextFormat.cs" />
+    <Compile Include="ContentTypeFields\MultiLineText\MultiLineTextSettings.cs" />
+    <Compile Include="ContentTypeFields\MultiLineText\MultiLineTextValidation.cs" />
+    <Compile Include="ContentTypeFields\MultipleChoice\Choice.cs" />
+    <Compile Include="ContentTypeFields\MultipleChoice\ChoicesOrder.cs" />
+    <Compile Include="ContentTypeFields\MultipleChoice\MultipleChoiceField.cs" />
+    <Compile Include="ContentTypeFields\MultipleChoice\MultipleChoiceFormat.cs" />
+    <Compile Include="ContentTypeFields\MultipleChoice\MultipleChoiceSettings.cs" />
+    <Compile Include="ContentTypeFields\MultipleChoice\MultipleChoiceValidation.cs" />
+    <Compile Include="ContentTypeFields\NumberSelector\DropdownOrder.cs" />
+    <Compile Include="ContentTypeFields\NumberSelector\NumberSelectorField.cs" />
+    <Compile Include="ContentTypeFields\NumberSelector\NumberSelectorFormat.cs" />
+    <Compile Include="ContentTypeFields\NumberSelector\NumberSelectorRange.cs" />
+    <Compile Include="ContentTypeFields\NumberSelector\NumberSelectorSettings.cs" />
+    <Compile Include="ContentTypeFields\NumberSelector\NumberSelectorValidation.cs" />
+    <Compile Include="ContentTypeFields\NumberSetFormat.cs" />
+    <Compile Include="ContentTypeFields\Orientation.cs" />
+    <Compile Include="ContentTypeFields\PhoneNumberFormat.cs" />
+    <Compile Include="ContentTypeFields\Position.cs" />
+    <Compile Include="ContentTypeFields\ReferenceObject\ReferenceObjectField.cs" />
+    <Compile Include="ContentTypeFields\ReferenceObject\ReferenceObjectFormat.cs" />
+    <Compile Include="ContentTypeFields\ReferenceObject\ReferenceObjectSettings.cs" />
+    <Compile Include="ContentTypeFields\ReferenceObject\ReferenceObjectValidation.cs" />
+    <Compile Include="ContentTypeFields\SingleLineText\SingleLineTextField.cs" />
+    <Compile Include="ContentTypeFields\SingleLineText\SingleLineTextFormat.cs" />
+    <Compile Include="ContentTypeFields\SingleLineText\SingleLineTextSettings.cs" />
+    <Compile Include="ContentTypeFields\SingleLineText\SingleLineTextValidation.cs" />
+    <Compile Include="ContentTypeFields\StaticText\StaticTextField.cs" />
+    <Compile Include="ContentTypeFields\StaticText\StaticTextFormat.cs" />
+    <Compile Include="ContentTypeFields\StaticText\StaticTextHeasingFormat.cs" />
+    <Compile Include="ContentTypeFields\StaticText\StaticTextSettings.cs" />
+    <Compile Include="ContentTypeFields\Type.cs" />
+    <Compile Include="ContentTypeFields\Validation\BaseFieldValidation.cs" />
+    <Compile Include="ContentTypeFields\Validation\DateTimeRangeDefinition.cs" />
+    <Compile Include="ContentTypeFields\Validation\DateTimeRangeValidation.cs" />
+    <Compile Include="ContentTypeFields\Validation\RangeDefinition.cs" />
+    <Compile Include="ContentTypeFields\Validation\RangeValidation.cs" />
+    <Compile Include="ContentTypeFields\Validation\RequireFieldValidation.cs" />
+    <Compile Include="ContentTypeFields\Width.cs" />
+    <Compile Include="ContentTypeProperties.cs" />
+    <Compile Include="ImageAsset.cs" />
+    <Compile Include="Metadata.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeoSettings.cs" />
+    <Compile Include="Tag.cs" />
+    <Compile Include="TypeNameResolvers\ContentItemDetailsConverter.cs" />
+    <Compile Include="TypeNameResolvers\ContentTypeFieldConverter.cs" />
+    <Compile Include="TypeNameResolvers\ITypeNameResolver.cs" />
+    <Compile Include="TypeNameResolvers\TypeNameMap.cs" />
+    <Compile Include="UserInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
