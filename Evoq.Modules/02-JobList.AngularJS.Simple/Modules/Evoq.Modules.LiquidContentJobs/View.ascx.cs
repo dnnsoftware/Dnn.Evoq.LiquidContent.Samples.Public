@@ -2,6 +2,7 @@
 using System.Text;
 using DotNetNuke.Entities.Modules;
 using Evoq.Modules.LiquidContentJobs.Components;
+using Evoq.Modules.LiquidContentJobs.Components.Authorization;
 
 namespace Evoq.Modules.LiquidContentJobs
 {
@@ -11,6 +12,7 @@ namespace Evoq.Modules.LiquidContentJobs
         {
             base.OnLoad(e);
             ScopeWrapper.InnerHtml = RenderContent();
+            ScopeWrapper.Attributes["token"] = TokenServiceImpl.Instance.ObtainToken(PortalSettings.PortalId, UserInfo.UserID);
         }
 
         private string RenderContent()
