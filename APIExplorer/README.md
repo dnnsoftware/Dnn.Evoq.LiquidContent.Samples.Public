@@ -2,11 +2,11 @@
 
 # Introduction
 
-This is a desktop application targeted to developers to ease the usage of the Liquid Content API.
+This is a desktop application targeted to developers to ease the usage of the [Liquid Content API](http://www.dnnsoftware.com/cms-features/about-liquid-content).
 
 Developers can use it to view, test and debug the API in an interactive way.
 
-To start using it, just an API Key obtained from Liquid Content in Evoq is needed.
+To start using it, just an API Key obtained from Liquid Content in [DNN Evoq](http://www.dnnsoftware.com/products) is needed.
 
 Features:
 
