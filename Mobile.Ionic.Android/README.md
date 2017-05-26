@@ -4,9 +4,9 @@
 
 # Introduction
 
-The purpose of this Mobile App is to make a personal movie list with ratings. This way user can create personal top list of movies and share it.
+The purpose of this Mobile App is to make a personal movie list with ratings. This way a user can create a personal top list of movies and share it.
 
-This app uses Liquid Content as Backend. It&#39;s built using Ionic and Angular JS. It has infinite scroll technologie
+This app uses [Liquid Content](http://www.dnnsoftware.com/cms-features/about-liquid-content) as the backend. It&#39;s built using Ionic and Angular JS. It has also have support for infinite scrolling.
 
 
 
@@ -287,6 +287,6 @@ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ionicTest.keyst
 
 # Conclusion
 
-As can be seen from above, it&#39;s very easy to build an App using Evoq Liquid Content. All that&#39;s needed is setup Ionic Development Environment, setup Integration with the Liquid Content and release the App using Android SDK.
+As can be seen from above, it&#39;s very easy to build an App using Evoq Liquid Content. All that&#39;s needed is to setup Ionic Development Environment, setup Integration with the Liquid Content and release the App using Android SDK.
 
-Also as seen Liquid Content API is flexible, that makes it&#39;s very easy to build infinite scroll application.
+Also as seen, the Liquid Content API is flexible, which makes it&#39;s very easy to build infinite scroll application.
