@@ -27,7 +27,7 @@ namespace Evoq.Modules.LiquidContentJobs.Components
             return () => new JobPostingManager();
         }
 
-        public List<JobPosting> GetJobPosting(int portalId, int userId)
+        public List<JobPosting> GetJobPosting(int portalId, int userId, int pageIndex, int pageSize, bool orderAsc)
         {
             var uri = GetApiUri();
             var token = _tokenService.ObtainToken(portalId, userId);
@@ -40,7 +40,7 @@ namespace Evoq.Modules.LiquidContentJobs.Components
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var response = client.GetAsync($"api/PublishedContentItems?contentTypeId={typeId}").Result;
+                var response = client.GetAsync($"api/PublishedContentItems?contentTypeId={typeId}&startIndex={pageIndex}&maxItems={pageSize}&orderAsc={orderAsc}&fieldOrder=createdAt").Result;
                 if (!response.IsSuccessStatusCode)
                 {
                     var error = response.Content.ReadAsStringAsync().Result;
@@ -53,6 +53,7 @@ namespace Evoq.Modules.LiquidContentJobs.Components
                 var documents = (JArray)result.documents;
                 var jobs = documents.Select(x => new JobPosting
                 {
+                    Id = (string)x["id"],
                     Title = (string)x["details"]["jobTitle"],
                     Description = (string)x["details"]["description"]
                 }).ToList();

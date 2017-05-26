@@ -12,9 +12,9 @@ namespace Evoq.Modules.LiquidContentJobs.Services
     public class JobPostingController : DnnApiController
     {
         [HttpGet]
-        public HttpResponseMessage GetJobPosting()
+        public HttpResponseMessage GetJobPosting(int pageIndex, int pageSize, bool orderAsc = false)
         {
-            var jobs = JobPostingManager.Instance.GetJobPosting(PortalSettings.PortalId, UserInfo.UserID);
+            var jobs = JobPostingManager.Instance.GetJobPosting(PortalSettings.PortalId, UserInfo.UserID, pageIndex, pageSize, orderAsc);
             return Request.CreateResponse(HttpStatusCode.OK, new
             {
                 jobPosting = jobs.Select(j => new

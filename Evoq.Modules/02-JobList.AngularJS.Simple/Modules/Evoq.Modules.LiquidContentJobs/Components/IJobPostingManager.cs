@@ -13,7 +13,10 @@ namespace Evoq.Modules.LiquidContentJobs.Components
         /// </summary>
         /// <param name="portalId">Portal Id</param>
         /// <param name="userId">User that request the operation</param>
+        /// <param name="pageIndex">page index</param>
+        /// <param name="pageSize">page size</param>
+        /// <param name="orderAsc">order asc</param>
         /// <returns>Content block type object definition</returns>
-        List<JobPosting> GetJobPosting(int portalId, int userId);
+        List<JobPosting> GetJobPosting(int portalId, int userId, int pageIndex, int pageSize, bool orderAsc);
     }
 }
