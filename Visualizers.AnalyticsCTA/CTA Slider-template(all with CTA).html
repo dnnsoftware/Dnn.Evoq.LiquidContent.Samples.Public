@@ -1,0 +1,78 @@
+<section class="feature" id="cta-slider">
+
+    <div id="centered-text">
+        <h1 data-wow-delay=".1s" class="wow fadeInUp">{{title}}</h1>
+    </div>
+
+    <div id="myCarousel" data-wow-delay=".2s" class="wow fadeInUp carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"><span>{{slide1LinkText}}</span>
+        <li data-target="#myCarousel" data-slide-to="1"><span>{{slide2LinkText}}</span>
+        <li data-target="#myCarousel" data-slide-to="2"><span>{{slide3LinkText}}</span>
+        <li data-target="#myCarousel" data-slide-to="3"><span>{{slide4LinkText}}</span>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div data-wow-delay=".3s" class="wow fadeInUp carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="carousel-container">
+                <div id="right-sixty">
+                    <ul>
+                        <li>{{slide1Image}}</li>
+                    </ul>
+                </div>
+            </div>
+            <div  class="carousel-caption">
+                <h3>{{slide1Title}}</h3>
+                <p>{{slide1Description}}</p>
+                <p><a href="{{slide1CTALink}}" data-evtcategory="CTA" data-evtaction="Click" data-evtlabel="{{slide1LinkText}}">{{slide1CTALinkText}}</a></p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="carousel-container">
+                <div id="right-sixty">
+                    <ul>
+                        <li>{{slide2Image}}</li>
+                    </ul>
+                </div>                      
+              <div  class="carousel-caption">
+                <h3>{{slide2Title}}</h3>
+                <p>{{slide2Description}}</p>
+                <p><a href="{{slide2CTALink}}" data-evtcategory="CTA" data-evtaction="Click" data-evtlabel="{{slide2LinkText}}">{{slide2CTALinkText}}</a></p>
+              </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="carousel-container">
+                <div id="right-sixty">
+                    <ul>
+                        <li>{{slide3Image}}</li>
+                    </ul>
+                </div>                      
+              <div  class="carousel-caption">
+                <h3>{{slide3Title}}</h3>
+                <p>{{slide3Description}}</p>
+                <p><a href="{{slide3CTALink}}" data-evtcategory="CTA" data-evtaction="Click" data-evtlabel="{{slide3LinkText}}">{{slide3CTALinkText}}</a></p>
+              </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="carousel-container">
+                <div id="right-sixty">
+                    <ul>
+                        <li>{{slide4Image}}</li>
+                    </ul>
+                </div>                      
+              <div  class="carousel-caption">
+                <h3>{{slide4Title}}</h3>
+                <p>{{slide4Description}}</p>
+                <p><a href="{{slide4CTALink}}" data-evtcategory="CTA" data-evtaction="Click" data-evtlabel="{{slide4LinkText}}">{{slide4CTALinkText}}</a></p>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+</section>
+<!-- /CTA Slider -->
