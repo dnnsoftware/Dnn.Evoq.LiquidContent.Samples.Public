@@ -1,7 +1,7 @@
 
 # NODE EXPRESSJS REACT AUTO TAGGING APPLICATION
 This auto tagging application is a demonstration of how a user can automatically
-generate tags for liquid content using a combination of machine learning and a natural langauge library for for JavaScript in a NodeJS application that serves a React front-end. By using already existing liquid content items, tags can be autoamtically generated from a local model hosted on the NodeJS server.
+generate tags for [Liquid Content](http://www.dnnsoftware.com/cms-features/about-liquid-content) using a combination of machine learning and a natural langauge library for for JavaScript in a NodeJS application that serves a React front-end. By using already existing liquid content items, tags can be autoamtically generated from a local model hosted on the NodeJS server.
 
 ## On Initial Launch
 ``` You will notice that there are no tags associated to the blog post pulled from liquid content```
