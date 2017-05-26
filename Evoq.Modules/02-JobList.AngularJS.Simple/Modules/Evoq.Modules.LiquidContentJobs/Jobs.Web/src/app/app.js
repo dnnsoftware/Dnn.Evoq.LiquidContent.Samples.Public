@@ -16,7 +16,7 @@ class AppCtrl {
     $scope.jobList = [];
     const template = require('./app.html');
     const templ = $compile(template)($scope);
-    const $el = document.getElementById("dnn_ctr470_View_ScopeWrapper");
+    const $el = document.getElementsByClassName("job-list")[0];
     $el.innerHTML = "";
     const token = $el.getAttribute("token");
     angular.element($el).append(templ);

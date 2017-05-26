@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Text;
 using DotNetNuke.Entities.Modules;
-using Evoq.Modules.LiquidContentJobs.Components;
 using Evoq.Modules.LiquidContentJobs.Components.Authorization;
 
 namespace Evoq.Modules.LiquidContentJobs
