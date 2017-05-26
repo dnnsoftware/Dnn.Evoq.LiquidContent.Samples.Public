@@ -10,12 +10,12 @@ namespace Evoq.Modules.LiquidContentJobs
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            //ScopeWrapper.InnerHtml = RenderContent();
+            ScopeWrapper.InnerHtml = RenderContent();
         }
 
         private string RenderContent()
         {
-            var jobs = JobPostingManager.Instance.GetJobPosting(PortalSettings.PortalId, UserInfo.UserID, 0, 10, false);
+            var jobs = JobPostingManager.Instance.GetJobPosting(PortalSettings.PortalId, UserInfo.UserID);
             var content = new StringBuilder();
             foreach (var job in jobs)
             {

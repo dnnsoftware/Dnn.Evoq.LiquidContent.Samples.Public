@@ -103,7 +103,6 @@
     <Compile Include="Components\ServiceEndPointsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthorizationController.cs" />
-    <Compile Include="Services\JobPostingController.cs" />
     <Compile Include="Services\ServiceRouteMapper.cs" />
     <Compile Include="Settings.ascx.cs">
       <DependentUpon>Settings.ascx</DependentUpon>
