@@ -31,7 +31,7 @@ In this example, we will use [Evoq Liquid Content](http://www.dnnsoftware.com/cm
 
 ## Prerequisites
 
-- A target website and obtain [API Key of Liquid Content](http://www.dnnsoftware.com/docs/administrators/structured-content/create-api-key.html)
+- A target website and obtain [API Key for Liquid Content](http://www.dnnsoftware.com/docs/administrators/structured-content/create-api-key.html)
   - This API Key needs to have permission to read and write Content Types and Content Items
 - Enable Excel micro with file extension ".xlsm"
 - Load JsonConverter.bas and Dictionary.cls in Excel micro
