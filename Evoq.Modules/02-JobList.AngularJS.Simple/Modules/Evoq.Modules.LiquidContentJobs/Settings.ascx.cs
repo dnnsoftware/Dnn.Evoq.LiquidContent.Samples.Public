@@ -14,13 +14,13 @@ namespace Evoq.Modules.LiquidContentJobs
         {
             base.LoadSettings();
 
-            if (ModuleSettings.ContainsKey("Days"))
+            if (ModuleSettings.ContainsKey("PageSize"))
             {
-                txtDays.Text = ModuleSettings["Days"].ToString();
+                txtPageSize.Text = ModuleSettings["PageSize"].ToString();
             }
             else
             {
-                txtDays.Text = "5";
+                txtPageSize.Text = "5";
             }
         }
 
@@ -28,7 +28,7 @@ namespace Evoq.Modules.LiquidContentJobs
         {
             base.UpdateSettings();
 
-            ModuleController.Instance.UpdateModuleSetting(ModuleId, "Days", string.IsNullOrEmpty(txtDays.Text) ? "5" : txtDays.Text);
+            ModuleController.Instance.UpdateModuleSetting(ModuleId, "PageSize", string.IsNullOrEmpty(txtPageSize.Text) ? "5" : txtPageSize.Text);
         }
 
     }

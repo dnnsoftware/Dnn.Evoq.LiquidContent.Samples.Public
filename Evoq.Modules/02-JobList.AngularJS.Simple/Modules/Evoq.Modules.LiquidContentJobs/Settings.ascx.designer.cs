@@ -13,12 +13,12 @@ namespace Evoq.Modules.LiquidContentJobs {
     public partial class Settings {
         
         /// <summary>
-        /// txtDays control.
+        /// txtPageSize control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDays;
+        protected global::System.Web.UI.WebControls.TextBox txtPageSize;
     }
 }
