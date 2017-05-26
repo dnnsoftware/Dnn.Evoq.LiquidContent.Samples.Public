@@ -6,7 +6,7 @@
 Several years ago, [Second Life](http://www.secondlife.com)® residents were limited to 25 groups that they can join. Joining groups were necessary for many things, including getting freebies from a vendor, getting access to a parcel or a region, getting permissions to terraform land or modify objects, getting notices about events or new products or store discounts, and many others. Eventually, Second Life increased the allowed number of groups to 42, which is still not enough for some residents.
 
 ![freebie merchandise that require group membership - Maitreya](images/maitreya-freebie.png)
-Figure 1 - Freebie merchandise like these are usually given away to members of a store group to get customers to come back or to introduce newbies to the brand. Location: http://maps.secondlife.com/secondlife/Maitreya%20Isle/122/190/23
+**_Figure 1_ - Freebie merchandise like these are usually given away to members of a store group to get customers to come back or to introduce newbies to the brand. Location: http://maps.secondlife.com/secondlife/Maitreya%20Isle/122/190/23 **
 
 To capture users who don't want to use up their group slots, a few scripters have created *subscribos*, which are objects that residents touch to be added to a mailing list, which is stored in some database off-world (i.e., Google Sheets).
 
@@ -15,7 +15,7 @@ Similar techniques have been used for scripted vendors, which are inworld object
 This also allows merchants to review their sales without having to do much bookkeeping. Inworld transactions in Linden dollars (the inworld currency) are kept on the Second Life database for only about a month. Then they are deleted forever. So, scripted vendors eliminate the worry that the record of a sales transaction is lost, just because the merchant was stranded for a few months on a remote tropical island with no internet access.
 
 ![a subscribo in the Second Life Marketplace](images/marketplace-subscribo.png)
-Figure 2 - One of several subscribo brands in the SL Marketplace.
+**_Figure 2_ - One of several subscribo brands in the SL Marketplace.**
 
 
 ## DNN Subscribo
@@ -32,7 +32,7 @@ On the DNN side:
   - A single-line field to hold the SL UUID of the subscriber. This UUID is required by many Second Life APIs for private communications, product delivery, etc.
   - A multiple-choice field for mailing lists. Allow users to choose more than one, or set to **Checkboxes**.
   ![Screenshot of a content type definition in Evoq](images/contenttypescreenshot.png)
-  Figure 3 - Content Type for the subscriber information.
+  **_Figure 3_ - Content Type for the subscriber information.**
 
 On the Second Life side:
 
@@ -41,12 +41,12 @@ On the Second Life side:
   - Face #1 serves as the UNSUBSCRIBE button, and
   - Face #3 displays the company logo.
   ![A textured and tortured cube in Second Life with settings](images/prim-settings.png)
-  Figure 4 - Settings for our cube as described.
+  **_Figure 4_ - Settings for our cube as described.**
 
 - A [Linden Scripting Language](http://wiki.secondlife.com/wiki/LSL_Portal) (LSL) script. LSL is the programming language used in Second Life and other OpenSim worlds. (OpenSim is a technology based on SL.) The LSL script has dependencies on the way the object is configured. You can create the same interactive object many ways:
   - You can use multiple prims that are combined into one object, and **a different action is performed depending on which prim is touched**. Con: Parcels and regions have limitations on land impact. A basic prim equals one land impact (LI). The LI of *mesh* objects vary, depending on the number of tris on the mesh. So users prefer objects that use as few prims or LI as possible. (Objects attached to avatar do not have LI limitations, although complex attachments can cause lag.)
   - You can also use just one face of the cube, and **a different action is performed depending on what part of the face is touched**. Con: This requires a more complex script that calculates the point that was touched and then matching it with some data structure that defines which points should do which action.
-  - Our script (<DNNSubscriboForSL.txt>) assigns **different faces of a single prim (a cube) to do different actions**, which uses only one LI and less complex code.
+  - Our script ([DNNSubscriboForSL.txt]) assigns **different faces of a single prim (a cube) to do different actions**, which uses only one LI and less complex code.
 
 
 ## APIs Used
@@ -66,7 +66,7 @@ The core functionality of the LSL script uses the following APIs:
 
 ## LSL Script
 
-For the complete script, see <DNNSubscriboForSL.txt>.
+For the complete script, see [DNNSubscriboForSL.txt].
 
 The following are the DNN-related variables used by the script:
 ``` Linden Scripting Language
@@ -82,12 +82,12 @@ list BASIC_HTTP_PARAMETERS = [
     HTTP_CUSTOM_HEADER, "Authorization", "Bearer 00000000000000000000000000000000"
     ];
 ```
-*NOTE:* You must replace the `DNNCONTENTTYPEID` with the UUID of the content type you create in your DNN site. You must also replace the "Bearer" UUID with [your own API key](https://www.dnnsoftware.com/docs/administrators/structured-content/create-api-key.html).
+**NOTE:** You must replace the `DNNCONTENTTYPEID` with the UUID of the content type you create in your DNN site. You must also replace the "Bearer" UUID with [your own API key](https://www.dnnsoftware.com/docs/administrators/structured-content/create-api-key.html).
 
 
 The following are the HTTP Requests:
 
-GET using a query
+**GET using a query**
 ``` Linden Scripting Language
 t_kHttpReqGet = llHTTPRequest(
     TGTDOMAIN + "/ContentItems?name=" + (string) t_sUsername,
@@ -95,7 +95,7 @@ t_kHttpReqGet = llHTTPRequest(
     "" );
 ```
 
-GET using the content item UUID of the specific "SL User"
+**GET using the content item UUID of the specific "SL User"**
 ``` Linden Scripting Language
 t_kHttpReqGet = llHTTPRequest(
     TGTDOMAIN + "/ContentItems/" + t_kDNNID,
@@ -103,7 +103,7 @@ t_kHttpReqGet = llHTTPRequest(
     "" );
 ```
 
-POST
+**POST**
 ``` Linden Scripting Language
 t_kHttpReqPost = llHTTPRequest(
     TGTDOMAIN + "/ContentItems?publish=true",
@@ -111,7 +111,7 @@ t_kHttpReqPost = llHTTPRequest(
     sPostStr );
 ```
 
-PUT
+**PUT**
 ``` Linden Scripting Language
 t_kHttpReqPut = llHTTPRequest(
     TGTDOMAIN + "/ContentItems/" + t_kDNNID + "?publish=true",
@@ -122,7 +122,7 @@ t_kHttpReqPut = llHTTPRequest(
 To parse the JSON structure returned in the HTTP Response, insert the parsing code (using `llJsonGetValue()`) in the `http_response` event handler.
 
 ![Flowchart](images/DNNSubscriboFlowchart.png)
-Figure 5 - Flowchart of the LSL script.
+**_Figure 5_ - Flowchart of the LSL script.**
 
 
 ## Prerequisites
@@ -131,7 +131,7 @@ Figure 5 - Flowchart of the LSL script.
 - Superuser/Host access to your site.
 - A Second Life account.
 - Some knowledge of how to create and manipulate prims.
-- Some knowledge of how to script in the Linden Scripting Language. (Or copy the script from <DNNSubscriboForSL.txt>.)
+- Some knowledge of how to script in the Linden Scripting Language. (Or copy the script from [DNNSubscriboForSL.txt].)
 - 10L$ (10 Linden dollars = approximately US$0.04) to upload a texture.
 
 
@@ -162,7 +162,7 @@ Figure 5 - Flowchart of the LSL script.
     Sample texture:
     (You can request a full-perms copy of this texture inside Second Life from *DNNDiaNNa*.)
     ![DNN Subscribo texture](images/Evoq-SubscribeUnsubscribe.jpg)
-    Figure 6 - Sample texture to be applied on the prim for the subscribo.
+    **_Figure 6_ - Sample texture to be applied on the prim for the subscribo.**
 
 3. Inside Second Life, put the subscribo together.
 
@@ -171,9 +171,9 @@ Figure 5 - Flowchart of the LSL script.
     2. Create the object.
         1. Rez a cube.
         2. Torture the cube.
-            Size: &lt;0.5, 0.60396, 0.01&gt;
-            Taper: x = 0.0, y = 0.8
-            Top Shear: x = 0.0, y = -0.2
+            * Size: &lt;0.5, 0.60396, 0.01&gt;
+            * Taper: x = 0.0, y = 0.8
+            * Top Shear: x = 0.0, y = -0.2
         3. Apply the texture. Adjust the texture scale and offset for each of the active faces to show only the relevant part of your texture.
 
     3. Create a new script.
@@ -196,4 +196,6 @@ Figure 5 - Flowchart of the LSL script.
 - Second Life Wiki: [LSL Portal](http://wiki.secondlife.com/wiki/LSL_Portal)
 
 ![DNN DiaNNa with completed subscribo](images/dnndianne-with-final-subscribo.png)
-Figure 7 - DiaNNa (username:dnndianna) inside Second Life with the completed subscribo.
+**_Figure 7_ - DiaNNa (username:dnndianna) inside Second Life with the completed subscribo.**
+
+[DNNSubscriboForSL.txt]: DNNSubscriboForSL.txt
