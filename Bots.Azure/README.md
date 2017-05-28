@@ -8,7 +8,7 @@ The bot will be built by using the Azure Bot Service, the intelligent, serverles
 this service, you will be able to publish your bot through multiple channels without managing or patching any server. The service 
 is free, and you will only pay for the resources you consume. 
 
-![Architecture](https://github.com/dnnsoftware/Dnn.Evoq.LiquidContent.Samples/blob/master/David/images/Architecture.png)
+![Architecture](images/Architecture.png)
 
 # Getting Started
 
