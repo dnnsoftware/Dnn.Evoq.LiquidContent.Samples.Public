@@ -32,9 +32,20 @@ This app has been built using the following technologies:
 - React [https://facebook.github.io/react/](https://facebook.github.io/react/) - User Interface framework
 - Material UI - [http://www.material-ui.com](http://www.material-ui.com) - React UI widgets following Material Design
 
-## How to start the app
+# Getting started
 
-Execute the following commands to start the app:
+To start the app, you'll need first to get the Liquid Content Samples code. You can clone it from the [Github repository](https://github.com/dnnsoftware/Dnn.Evoq.LiquidContent.Samples.Public). Providing you have [git](https://git-scm.com/) already installed, run the next command in your system's terminal:
+
+```bash
+git clone https://github.com/dnnsoftware/Dnn.Evoq.LiquidContent.Samples.Public
+```
+
+This app's code is in the APIExplorer directory, so change to it:
+```bash
+cd APIExplorer
+```
+
+In order to build and run the app, you also need the [yarn](https://yarnpkg.com/) package manager. It can be downloaded and installed from [here](https://yarnpkg.com/lang/en/docs/install/). Once installed, execute the following commands to start the app:
 
 ```bash
 # Install dependencies
@@ -42,6 +53,9 @@ yarn install
 # Run the app
 yarn start
 ```
+These commands will automatically fetch all the required dependencies, and then will build and start the app. Once they finish, the main app UI wil open:
+
+![](docs/images/api-explorer.png)
 
 # Obtain an API Key
 
@@ -155,7 +169,7 @@ To create a new content type, we must perform a POST request and specify the def
 2. Click on _Create Content Type_ option ![](docs/images/example-create.png)
     1. Note the _Method_ field changed to _POST_
     2. Parameters field is not visible
-    3. body editor appears, prefilled with an example JSON to create a content type ![](docs/images/body-editor.png)
+    3. body editor appears, pre-filled with an example JSON to create a content type ![](docs/images/body-editor.png)
 3. Click the request button
 
 **Result**
