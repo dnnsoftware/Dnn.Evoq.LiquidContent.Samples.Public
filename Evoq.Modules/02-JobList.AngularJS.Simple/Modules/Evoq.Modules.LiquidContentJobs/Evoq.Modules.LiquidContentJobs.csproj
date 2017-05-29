@@ -95,12 +95,6 @@
     <Compile Include="Components\Authorization\TokenKeyGenerator.cs" />
     <Compile Include="Components\Authorization\TokenServiceImpl.cs" />
     <Compile Include="Components\Constants.cs" />
-    <Compile Include="Components\JobPostingManager.cs" />
-    <Compile Include="Components\Dto\JobPosting.cs" />
-    <Compile Include="Components\IJobPostingManager.cs" />
-    <Compile Include="Components\IServiceEndPointsRepository.cs" />
-    <Compile Include="Components\ISettingService.cs" />
-    <Compile Include="Components\ServiceEndPointsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.ascx.cs">
       <DependentUpon>Settings.ascx</DependentUpon>
@@ -139,15 +133,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="web.config" />
-    <None Include="web.Debug.config">
-      <DependentUpon>web.config</DependentUpon>
-    </None>
-    <None Include="web.Release.config">
-      <DependentUpon>web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
