@@ -71,11 +71,11 @@ The following steps will guide you throw the process of knowing how are the Liqu
 
 Liquid Content API is built following the [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification) (aka The Swagger Specification). Swagger allows you to see the details of the API through its web interface. In our case, the Liquid Content API can be examined through [http://qa-sc.dnnapi.com/swagger](http://qa-sc.dnnapi.com/swagger)
 
- ![](https://github.com/dnnsoftware/Dnn.Evoq.LiquidContent.Samples.Public/tree/master/OfflineVisualizerSync/doc/img/01_swagger.png)
+ ![](https://github.com/dnnsoftware/Dnn.Evoq.LiquidContent.Samples.Public/raw/master/OfflineVisualizerSync/doc/img/01_swagger.png)
 
 In the Swagger main page, you can see the different sections of the Liquid Content API. This tutorial will use only one of those sections (Visualizers) and if you click on that section, you will see the different API methods allowed to deal with the visualizers:
 
- ![](https://github.com/dnnsoftware/Dnn.Evoq.LiquidContent.Samples.Public/tree/master/OfflineVisualizerSync/doc/img/02_swagger_sections.png)
+ ![](https://github.com/dnnsoftware/Dnn.Evoq.LiquidContent.Samples.Public/raw/master/OfflineVisualizerSync/doc/img/02_swagger_sections.png)
 
 Our application will use three of those methods:
 
@@ -85,7 +85,7 @@ Our application will use three of those methods:
 
 To see how those method works, in terms of parameters, payload, etc. you only have to click on those methods and the UI will show you what&#39;s needed to call the API method. Let&#39;s take a look at the PUT method, to update a single visualizer:
 
- ![](https://github.com/dnnsoftware/Dnn.Evoq.LiquidContent.Samples.Public/tree/master/OfflineVisualizerSync/doc/img/03_swagger_operation_details.png)
+ ![](https://github.com/dnnsoftware/Dnn.Evoq.LiquidContent.Samples.Public/raw/master/OfflineVisualizerSync/doc/img/03_swagger_operation_details.png)
 
 - Credentials: The API uses OAuth, so you have to have a valid OAuth Token in order to use the API (more on this in the following section)
 - Response: This is the object that is returned by the PUT method, if the update completes successfully
@@ -101,7 +101,7 @@ The Evoq Content Library page of the Persona Bar lets you generate an API key, b
 
 But there&#39;s a way to get a valid API Key, which is by inspecting the web browser and, in the Network tab, look for a request to the Visualizers API (you have to navigate to the visualizers section of the Content Library to see those requests), and get the Authorization header from the requests:
 
- ![](https://github.com/dnnsoftware/Dnn.Evoq.LiquidContent.Samples.Public/tree/master/OfflineVisualizerSync/doc/img/04_getting_auth_token.png)
+ ![](https://github.com/dnnsoftware/Dnn.Evoq.LiquidContent.Samples.Public/raw/master/OfflineVisualizerSync/doc/img/04_getting_auth_token.png)
 
 With that token in hand, we can now start calling the API. Let&#39;s start with our app.
 
@@ -109,7 +109,7 @@ With that token in hand, we can now start calling the API. Let&#39;s start with 
 
 To create a .NET Core application in Visual Studio 2017, go to File &gt; New &gt; Project and from the &quot;New Project&quot; dialog box, select &quot;Console App (.NET Core)&quot;. Give it a name, and click Ok:
 
- ![](https://github.com/dnnsoftware/Dnn.Evoq.LiquidContent.Samples.Public/tree/master/OfflineVisualizerSync/doc/img/05_dotnet_core_new_app.png)
+ ![](https://github.com/dnnsoftware/Dnn.Evoq.LiquidContent.Samples.Public/raw/master/OfflineVisualizerSync/doc/img/05_dotnet_core_new_app.png)
 
 This will create a HelloWorld application.
 
@@ -127,7 +127,7 @@ So, right click on your project name in the Solution Explorer, select Manage NuG
 
 Let&#39;s have a look at the project structure:
 
- ![](https://github.com/dnnsoftware/Dnn.Evoq.LiquidContent.Samples.Public/tree/master/OfflineVisualizerSync/doc/img/06_project_structure.png)
+ ![](https://github.com/dnnsoftware/Dnn.Evoq.LiquidContent.Samples.Public/raw/master/OfflineVisualizerSync/doc/img/06_project_structure.png)
 
 Under the API folder, we have the following files:
 
