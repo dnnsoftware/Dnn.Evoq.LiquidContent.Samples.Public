@@ -12,8 +12,22 @@ namespace Evoq.Modules.LiquidContentJobs.Components.Authorization
             GetScopeIdentifier(Constants.ContentItemResourceName, Constants.ReadAction)
         };
 
+        private static readonly string[] AllScopes =
+        {
+            GetScopeIdentifier(Constants.ContentTypeResourceName, Constants.ReadAction),
+            GetScopeIdentifier(Constants.ContentItemResourceName, Constants.ReadAction),
+            GetScopeIdentifier(Constants.ContentTypeResourceName, Constants.WriteAction),
+            GetScopeIdentifier(Constants.ContentItemResourceName, Constants.WriteAction)
+        };
+
         private static readonly Dictionary<string, string[]> ScopesByRoleName = new Dictionary<string, string[]>
         {
+            {
+                Common.Constants.AdminsRoleName, AllScopes
+            },
+            {
+                Common.Constants.ContentManagerRoleName, AllScopes
+            },
             {
                 Common.Constants.ContentEditorRoleName, new[]
                 {
