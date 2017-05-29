@@ -1,6 +1,7 @@
 ﻿using System;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Security.Permissions;
+using DotNetNuke.Security.Roles;
 using Evoq.Modules.LiquidContentJobs.Components.Authorization;
 
 namespace Evoq.Modules.LiquidContentJobs
@@ -18,8 +19,9 @@ namespace Evoq.Modules.LiquidContentJobs
             }
             else
             {
+                var isAdmin = UserInfo.IsInRole(RoleController.Instance.GetRoleById(PortalId, PortalSettings.AdministratorRoleId).RoleName);
                 authToken = TokenServiceImpl.Instance.ObtainToken(PortalSettings.PortalId, UserInfo.UserID,
-                    new[] {Common.Constants.ContentEditorRoleName});
+                    new[] { isAdmin? Common.Constants.AdminsRoleName : Common.Constants.ContentEditorRoleName});
                 ScopeWrapper.Attributes["mode"] = "1";
             }
             ScopeWrapper.Attributes["token"] = authToken;
