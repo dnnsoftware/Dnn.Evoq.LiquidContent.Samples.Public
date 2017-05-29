@@ -19,9 +19,9 @@ This is a console application written in .NET Core so it can be used in a Window
 It has 3 main usages:
 
 1. Get the list of visualizers:
-  - You can get only the user defined visualizers:
+    - You can get only the user defined visualizers:
 `dotnet liquid.dll list`
-  - Or all the visualizers (system defined visualizers and user defined visualizers):
+    - Or all the visualizers (system defined visualizers and user defined visualizers):
 `dotnet liquid.dll list all`
 2. Download the different files (HTML, CSS and JavaScript) of a single visualizer:
 `dotnet liquid.dll download <VisualizerId>`
