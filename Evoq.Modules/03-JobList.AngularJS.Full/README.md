@@ -1,3 +1,3 @@
 # Evoq Modules - Liquid Content Job List
 
-This is a sample DNN module to access Liquid Content using Angular JS. Advanced UI allows user to manage the job list.
+This is a sample DNN module to access Liquid Content using Angular JS. A bearer token with read and write permission for Liquid Content is generated on the server side and passed to the front-end.
