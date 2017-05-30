@@ -14,7 +14,5 @@ namespace Evoq.Modules.LiquidContentJobs.Components
         internal const string ServiceEndPointApiConfigKey = "Services.Endpoints.StructuredContent.Api";
 
         internal const string ReadAction = "read";
-
-        internal const string WriteAction = "write";
     }
 }

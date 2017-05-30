@@ -12,7 +12,5 @@ namespace Evoq.Modules.LiquidContentJobs.Components
         internal const string ContentItemResourceName = "sc-item";
 
         internal const string ReadAction = "read";
-
-        internal const string WriteAction = "write";
     }
 }
