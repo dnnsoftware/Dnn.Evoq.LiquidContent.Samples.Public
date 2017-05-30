@@ -12,7 +12,7 @@ Liquid Content requires a bearer token for a client to access the APIs. In this 
 ## View
 The view.ascx has very little markup
 
-![Screenshot3](images/screenshot3.png)
+![Screenshot6](images/screenshot6.png)
 
 The data for the view is populated server site
 
