@@ -7,15 +7,17 @@ This is a sample DNN module to access Liquid Content using Web Forms.
 ## Token
 Liquid Content requires a bearer token for a client to access the APIs. In this module, the token is generated on the server side.
 
-[Show screenshot of how this is generated]
+![Screenshot0](images/screenshot0.png)
 
 ## View
 The view.ascx has very little markup
-[Schow screenshot]
+
+![Screenshot1](images/screenshot1.png)
 
 The data for the view is populated server site
 [Schow screenshot of code]
 
 ## Settings
-[Show screenshot of UI]
+
+![Screenshot2](images/screenshot2.png)
 The moduel has a page size setting, but it's not used anywhere. It will be used in the next module.

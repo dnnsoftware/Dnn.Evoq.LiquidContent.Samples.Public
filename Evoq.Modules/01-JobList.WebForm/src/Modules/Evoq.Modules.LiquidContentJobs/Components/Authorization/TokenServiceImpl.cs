@@ -10,7 +10,8 @@ namespace Evoq.Modules.LiquidContentJobs.Components.Authorization
         {
             return () =>
             {
-                var tokenService = new TokenService(Constants.ApplicationName, Constants.ApplicationId, new ScopeManager());
+                var tokenService = new TokenService(Constants.ApplicationName, 
+                    Constants.ApplicationId, new ScopeManager());
                 return new TokenCachedService(Constants.ApplicationId, tokenService);
             };
         }
