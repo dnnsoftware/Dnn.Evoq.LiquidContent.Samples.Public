@@ -29,6 +29,16 @@ class AppCtrl {
     $scope.togglePanel = this.togglePanel.bind(this);
     $scope.onSubmit = this.onSubmit.bind(this);
     $scope.onRemove = this.onRemove.bind(this);
+    $scope.onEdit = this.onEdit.bind(this);
+    $scope.onCancelEdit = this.onCancelEdit.bind(this);
+    $scope.onSave = this.onSave.bind(this);
+    $scope.jobBeingEdited = null;
+    $scope.hideModal = this.onHideModal.bind(this);
+    $scope.confirmationModal = {
+      show: false,
+      text: "",
+      onConfirm: () => {}
+    }
 
     const template = require('./app.html');
     const templ = $compile(template)($scope);
@@ -38,6 +48,9 @@ class AppCtrl {
     angular.element(this.el).append(templ);
 
     this.APIkey = `Bearer ${token}`;
+
+    this.pageSize = this.el.getAttribute("pagesize");
+    $scope.mode = this.el.getAttribute("mode");
     this.getContentTypeId();
 
     $scope.toTrustedHTML = function (html) {
@@ -45,6 +58,7 @@ class AppCtrl {
     };
 
     this.createPages();
+    this.addConfirmationModal();
 
     const selectPage = function (pageIndex) {
       $scope.currentIndex = pageIndex;
@@ -77,9 +91,37 @@ class AppCtrl {
     });
   }
 
+  onEdit(job) {
+    this.$scope.jobBeingEdited = JSON.parse(JSON.stringify(job));
+  }
+
+  onCancelEdit() {
+    this.$scope.jobBeingEdited = null;
+  }
+
+  onSave (job) {
+    this.$http.put(`${url}/${job.id}`, this.$scope.jobBeingEdited, { headers: { authorization: this.APIkey } }).then((data) => {
+      job.details.description = this.$scope.jobBeingEdited.details.description;
+      job.details.jobTitle = this.$scope.jobBeingEdited.details.jobTitle;
+      this.$scope.jobBeingEdited = null;
+    });
+  }
+
   onRemove(job) {
+    const {confirmationModal} = this.$scope;
+    confirmationModal.text = "Are you sure you wont to remove the item?"
+    confirmationModal.onConfirm = this.onDelete.bind(this, job);
+    confirmationModal.show = true;
+  }
+
+  onHideModal() {
+    this.$scope.confirmationModal.show = false;
+  }
+
+  onDelete(job) {
     this.$http.delete(`${url}/${job.id}`, { headers: { authorization: this.APIkey } }).then((data) => {
       this.$scope.currentIndex = 0;
+      this.$scope.confirmationModal.show = false;
       this.loadPage();
     });
   }
@@ -119,6 +161,12 @@ class AppCtrl {
 
   createPages() {
     const template = require('./pager.html');
+    const templ = this.$compile(template)(this.$scope);
+    angular.element(this.el).append(templ);
+  }
+  
+  addConfirmationModal() {
+    const template = require('./confirmationModal.html');
     const templ = this.$compile(template)(this.$scope);
     angular.element(this.el).append(templ);
   }
