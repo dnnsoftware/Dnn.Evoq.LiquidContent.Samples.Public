@@ -11,19 +11,19 @@ This tutorial will show you how to build a Carousel visualizer in Liquid Content
 There&#39;ll be a small amount of Html coding but the rest is just point and click, so sharpen your html pencil and get your clicking finger ready.
 
 # Content Index
-1. [Create a New Content Type](/docs/step1.md)
-2. [Create the Content](/docs/step2.md)
-3. [Create the Slider Visualizer](/docs/step3.md)
-4. [Add the Visualizer to a Page](/docs/step4.md)
-5. [Edit the Visualizer to add Style](/docs/step5.md)
-6. [Modify your Content Type for multiple images](/docs/step6.md)
-7. [Modify your Visualizer for multiple images](/docs/step7.md)
-8. [Edit your Content to add extra images](/docs/step8.md)
-9. [Add in CTA Link Definitions to the Content Type](/docs/step9.md)
-10. [Add in CTA Html Attributes to the Visualizer](/docs/step10.md)
-11. [Add the CTA Link Details to the Content Item](/docs/step11.md)
-12. [View the Results](/docs/step12.md)
-13. [Analyze the click behaviour with Analytics](/docs/step13.md)
+1. [Create a New Content Type](docs/step1.md)
+2. [Create the Content](docs/step2.md)
+3. [Create the Slider Visualizer](docs/step3.md)
+4. [Add the Visualizer to a Page](docs/step4.md)
+5. [Edit the Visualizer to add Style](docs/step5.md)
+6. [Modify your Content Type for multiple images](docs/step6.md)
+7. [Modify your Visualizer for multiple images](docs/step7.md)
+8. [Edit your Content to add extra images](docs/step8.md)
+9. [Add in CTA Link Definitions to the Content Type](docs/step9.md)
+10. [Add in CTA Html Attributes to the Visualizer](docs/step10.md)
+11. [Add the CTA Link Details to the Content Item](docs/step11.md)
+12. [View the Results](docs/step12.md)
+13. [Analyze the click behaviour with Analytics](docs/step13.md)
 
 
 # Summary

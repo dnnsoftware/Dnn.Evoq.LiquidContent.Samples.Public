@@ -22,4 +22,4 @@ You can arrange the fields in any way you like to make it look simple and easy t
 
 Click &#39;Save and Close&#39; when you&#39;re finished.  The Content Type is ready to try out.
 
-Next : [Create the Content](/docs/step2.md)
+Next : [Create the Content](docs/step2.md)
