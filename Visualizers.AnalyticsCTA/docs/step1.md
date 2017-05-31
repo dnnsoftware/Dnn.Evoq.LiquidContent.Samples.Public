@@ -1,4 +1,4 @@
-+Step 1 : Create a New Content type+
+# Step 1 : Create a New Content type
 
 Liquid Content starts with Content Types.  We&#39;ll create a specific Content Type for holding a set of Content designed for your Carousel (or Slider, as the example shows).
 
