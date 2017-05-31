@@ -8,19 +8,19 @@ Go back into the Content Library and edit your Visualizer.  You&#39;re now going
 
 There&#39;s three sections here – the Template which is where the display Html lives, and the Script, where you can add some javascript, and Style, where you can add some CSS.  Let&#39;s do all three.
 
-First, click on the &#39;Script&#39; section and copy the contents of the &#39;[CTA-Slider.js](../CTA-Slider.js)&#39; file from the attached download.   Just open the js file in a text editor and copy/paste the contents directly into the Script window.
+First, click on the &#39;Script&#39; section and copy the contents of the &#39;[CTA-Slider_0.js](../CTA-Slider_0.js)&#39; file.   Just open the js file in a text editor and copy/paste the contents directly into the Script window.
 
   ![](../images/step5-script-editor.png)
 
 Click &#39;Save&#39; when done.
 
-Then, go to the &#39;Style&#39; section, and open and copy/paste the contents of the &#39;[CTA-Slider.css](../CTA-Slider.css)&#39; file from the attached download.   Again, just use a text editor to open the file to copy the contents.
+Then, go to the &#39;Style&#39; section, and open and copy/paste the contents of the &#39;[CTA-Slider_0.css](../CTA-Slider_0.css)&#39; file.   Again, just use a text editor to open the file to copy the contents.
 
  ![](../images/step5-style-editor.png)
  
 Click &#39;Save&#39; when that is done.
 
-Finally, on the &#39;Template&#39; section, copy/paste the contents of the &#39;[CTA-Slider-Template.html](../CTA-Slider-Template.html)&#39; file in.  Use a text editor to open this file as well – if you double click, well, it&#39;s just going to load the file.
+Finally, on the &#39;Template&#39; section, copy/paste the contents of the &#39;[CTA-Slider-template.html](../CTA-Slider-template.html)&#39; file in.  Use a text editor to open this file as well – if you double click, well, it&#39;s just going to load the file.
 
  ![](../images/step5-html-editor.png)
 

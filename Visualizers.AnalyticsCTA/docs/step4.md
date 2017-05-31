@@ -1,5 +1,7 @@
 # Step 4 : Add your Visualizer to the Home page of your site
 
+Prev : [Create the Slider Visualizer](step3.md)
+
 This part is easy.   Put your site into edit mode by clicking on the Edit pencil in the lower left, then click on &#39;Add Module&#39;
 
   ![](../images/step4-add-module.png)
@@ -24,5 +26,5 @@ Select that one and click &#39;Apply&#39; and you&#39;ll finally get to see your
 
 But it looks terrible!   Just a jumble of image and words!   Don&#39;t worry, we&#39;ll fix that by actually giving the visualizer some style.
 
-Prev : [Create the Slider Visualizer](step3.md)
+
 Next : [Edit the Visualizer to add Style](step5.md)

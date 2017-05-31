@@ -1,5 +1,7 @@
 # Step 13 : Analyse the Behaviour with Analytics
 
+Prev : [View the Results](step12.md)
+
 Open your Page Analytics and go to the &#39;Events&#39; tab.   The clicks on your CTA links will start showing up in the &#39;Page Interaction Events Table&#39; (Click the Table icon if you can&#39;t see it)
 
  ![](../images/step13-table.png)
@@ -14,5 +16,5 @@ Switch to the &#39;Charts&#39; view, zoom the &#39;Number&#39; chart and you can
  
 This data over time will help understand which of the CTA items are most clicked.
 
-Prev : [View the Results](step12.md)
+
 Home : [Project Home](../readme.md)
