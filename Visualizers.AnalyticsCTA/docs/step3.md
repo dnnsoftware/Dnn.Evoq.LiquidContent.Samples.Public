@@ -9,3 +9,6 @@ Use the title field at the top to call it &#39;CTA Slider Visualizer&#39;, and c
 Totally ignore the &#39;Editor&#39; part of things and Save the visualizer.  You&#39;re about to see what it looks like without any Html, CSS or script code.
 
 To do that, you&#39;ll need to add it to a page.
+
+Prev : [Create the Content](/docs/step2.md)
+Next : [Add the Visualizer to a Page](/docs/step4.md)

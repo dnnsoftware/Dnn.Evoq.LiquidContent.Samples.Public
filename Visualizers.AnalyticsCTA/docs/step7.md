@@ -5,3 +5,6 @@ When back at the Content Library, edit the Visualizer and switch to the Template
 Or you can just copy/paste the code from CTA Slider-template(all).html.  If you&#39;re playing on easy mode.
 
 Save and Close the Visualizer – it&#39;s time to add more content.
+
+Prev : [Modify your Content Type for multiple images](/docs/step6.md)
+Next : [Edit your Content to add extra images](/docs/step8.md)

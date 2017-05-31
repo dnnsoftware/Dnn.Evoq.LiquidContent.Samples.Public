@@ -6,7 +6,7 @@ This type of display is ideal for showing a &#39;Call to Action&#39; (CTA) desig
 
 The next best thing to implementing some dynamic content is measure how well it is working.   This makes it easy to identify an underperforming &#39;slide&#39; and replace it with something else.
 
-This (blog|tutorial|article) will show you how to build a Carousel visualizer in Liquid Content, and show you how you can use Evoq Analytics to quickly and easily understand how engaged your visitors are with that content.
+This tutorial will show you how to build a Carousel visualizer in Liquid Content, and show how to quickly and easily understand how engaged your visitors are with that content through Evoq Analytics.
 
 There&#39;ll be a small amount of Html coding but the rest is just point and click, so sharpen your html pencil and get your clicking finger ready.
 
@@ -28,7 +28,7 @@ There&#39;ll be a small amount of Html coding but the rest is just point and cli
 
 # Summary
 
-This example showcased several aspects of using Evoq:
+This example showcases several aspects of using Evoq:
 
 1. Creating Content Types, Visualizers and Content Items
 2. Incorporating open source libraries into visualizers, for the Carousel
@@ -36,7 +36,6 @@ This example showcased several aspects of using Evoq:
 4. Using Evoq Analytics to track and understand the clicks
 
 This can easily be taken further by:
- - Adding extra detail to the CTA links, or varying tracking (eg turn the image into a link, and track clicks on the image vs the link to see which is more effective)
-
-- --Using different CTAs on the same page, to see if Carousel sliders or blocks of text are preferred
-- --Decorating all the links on an important page like the home page to see which are the most commonly clicked items
+- Adding extra detail to the CTA links, or varying tracking (eg turn the image into a link, and track clicks on the image vs the link to see which is more effective)
+- Using different CTAs on the same page, to see if Carousel sliders or blocks of text are preferred
+- Decorating all the links on an important page like the home page to see which are the most commonly clicked items

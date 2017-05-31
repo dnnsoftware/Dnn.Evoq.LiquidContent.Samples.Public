@@ -13,3 +13,6 @@ The secret sauce here is the data-ctacategory, data-ctaaction and data-ctalabel 
 Yes, of course you can play on easy mode and copy the html from CTA Slider-template(all with CTA).html from the attached download.  If you want to keep your Html pencil unused.
 
 Last step in the editing process – add in the needed CTA Link content to the content Item.
+
+Prev : [Add in CTA Link Definitions to the Content Type](/docs/step9.md)
+Next : [Add the CTA Link Details to the Content Item](/docs/step11.md)

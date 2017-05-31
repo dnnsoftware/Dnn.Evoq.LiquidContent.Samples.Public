@@ -31,3 +31,6 @@ You guessed it – click Save.   And then close the Content Library and refresh 
 Success! Your home page should now show a nicely laid out Carousel, showing your content and your image.
 
 OK.  It&#39;s not much of a Carousel with only one image, but it is nice and tidy!
+
+Prev : [Add the Visualizer to a Page](/docs/step4.md)
+Next : [Modify your Content Type for multiple images](/docs/step6.md)
