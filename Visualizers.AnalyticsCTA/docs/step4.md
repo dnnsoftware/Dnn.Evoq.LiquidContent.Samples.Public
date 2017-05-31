@@ -24,3 +24,5 @@ Select that one and click &#39;Apply&#39; and you&#39;ll finally get to see your
 
 But it looks terrible!   Just a jumble of image and words.   Don&#39;t worry, we&#39;ll fix that by actually giving the visualizer some style.
 
+Prev : [Create the Slider Visualizer](step3.md)
+Next : [Edit the Visualizer to add Style](step5.md)

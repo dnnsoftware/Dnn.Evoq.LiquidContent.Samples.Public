@@ -12,5 +12,5 @@ When the content is complete, click &#39;Save&#39;.
 
 Now you&#39;re ready to take a look at that content you just created.  Almost there.  You&#39;ll need a Visualizer for that.
 
-Previous : [Create a New Content Type](/docs/step1.md)
-Next : [Create the Slider Visualizer](/docs/step3.md)
+Previous : [Create a New Content Type](step1.md)
+Next : [Create the Slider Visualizer](step3.md)

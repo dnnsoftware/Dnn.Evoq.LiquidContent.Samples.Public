@@ -10,5 +10,5 @@ Totally ignore the &#39;Editor&#39; part of things and Save the visualizer.  You
 
 To do that, you&#39;ll need to add it to a page.
 
-Prev : [Create the Content](/docs/step2.md)
-Next : [Add the Visualizer to a Page](/docs/step4.md)
+Prev : [Create the Content](step2.md)
+Next : [Add the Visualizer to a Page](step4.md)

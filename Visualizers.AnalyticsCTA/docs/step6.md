@@ -32,5 +32,5 @@ Slide 2 Description : multi line text
 
 Save and Close your Content Item when this is done.
 
-Prev : [Edit the Visualizer to add Style](/docs/step5.md)
-Next : [Modify your Visualizer for multiple images](/docs/step7.md)
+Prev : [Edit the Visualizer to add Style](step5.md)
+Next : [Modify your Visualizer for multiple images](step7.md)

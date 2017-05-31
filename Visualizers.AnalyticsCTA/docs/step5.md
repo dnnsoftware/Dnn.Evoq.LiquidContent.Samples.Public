@@ -32,5 +32,5 @@ Success! Your home page should now show a nicely laid out Carousel, showing your
 
 OK.  It&#39;s not much of a Carousel with only one image, but it is nice and tidy!
 
-Prev : [Add the Visualizer to a Page](/docs/step4.md)
-Next : [Modify your Content Type for multiple images](/docs/step6.md)
+Prev : [Add the Visualizer to a Page](step4.md)
+Next : [Modify your Content Type for multiple images](step6.md)

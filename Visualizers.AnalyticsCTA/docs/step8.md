@@ -10,5 +10,5 @@ Once that is done, click &#39;Save&#39; and then close the Content Library.  Ref
 
 But wait?  Where is the CTA?  Wasn&#39;t that what this was all about?
 
-Prev : [Modify your Visualizer for multiple images](/docs/step7.md)
-Next : [Add in CTA Link Definitions to the Content Type](/docs/step9.md)
+Prev : [Modify your Visualizer for multiple images](step7.md)
+Next : [Add in CTA Link Definitions to the Content Type](step9.md)

@@ -14,5 +14,5 @@ Yes, of course you can play on easy mode and copy the html from CTA Slider-templ
 
 Last step in the editing process – add in the needed CTA Link content to the content Item.
 
-Prev : [Add in CTA Link Definitions to the Content Type](/docs/step9.md)
-Next : [Add the CTA Link Details to the Content Item](/docs/step11.md)
+Prev : [Add in CTA Link Definitions to the Content Type](step9.md)
+Next : [Add the CTA Link Details to the Content Item](step11.md)

@@ -6,5 +6,5 @@ Or you can just copy/paste the code from CTA Slider-template(all).html.  If you&
 
 Save and Close the Visualizer – it&#39;s time to add more content.
 
-Prev : [Modify your Content Type for multiple images](/docs/step6.md)
-Next : [Edit your Content to add extra images](/docs/step8.md)
+Prev : [Modify your Content Type for multiple images](step6.md)
+Next : [Edit your Content to add extra images](step8.md)

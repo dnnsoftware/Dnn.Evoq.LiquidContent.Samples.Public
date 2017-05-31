@@ -14,5 +14,5 @@ Switch to the &#39;Charts&#39; view, zoom the &#39;Number&#39; chart and you can
 
 This data over time will help understand which of the CTA items are most clicked.
 
-Prev : [View the Results](/docs/step12.md)
+Prev : [View the Results](step12.md)
 Home : [Project Home](../readme.md)

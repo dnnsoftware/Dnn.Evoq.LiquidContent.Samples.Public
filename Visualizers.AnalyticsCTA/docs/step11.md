@@ -8,5 +8,5 @@ In this example, all of the Links go to the /Our-Products page, but each has an 
 
 Save the Content Item and go to your Home page to view the results of your work.
 
-Prev : [Add in CTA Html Attributes to the Visualizer](/docs/step10.md)
-Next : [View the Results](/docs/step12.md)
+Prev : [Add in CTA Html Attributes to the Visualizer](step10.md)
+Next : [View the Results](step12.md)

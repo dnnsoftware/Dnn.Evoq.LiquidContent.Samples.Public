@@ -10,5 +10,5 @@ Open and edit the Content Type  for the CTA Slider and add Single Line Text fiel
 
 Save and Close the CTA Slider Content Type.   Any new Content Type fields then need to be shown in the Visualizer – the next step is obvious (by now).
 
-Prev : [Edit your Content to add extra images](/docs/step8.md)
-Next : [Add in CTA Html Attributes to the Visualizer](/docs/step10.md)
+Prev : [Edit your Content to add extra images](step8.md)
+Next : [Add in CTA Html Attributes to the Visualizer](step10.md)
