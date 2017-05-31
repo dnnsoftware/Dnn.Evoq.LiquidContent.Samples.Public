@@ -4,7 +4,7 @@ Go to the &#39;Visualizers&#39; tab of the Content Library and click on &#39;Cre
 
 Use the title field at the top to call it &#39;CTA Slider Visualizer&#39;, and choose the Content Type of &#39;CTA Slider&#39; at the bottom.  Give it a nice description that will make sense to you in 6 months time when someone starts asking awkward questions.
 
-![](images/step3-visualizer.png)
+![](../images/step3-visualizer.png)
 
 Totally ignore the &#39;Editor&#39; part of things and Save the visualizer.  You&#39;re about to see what it looks like without any Html, CSS or script code.
 

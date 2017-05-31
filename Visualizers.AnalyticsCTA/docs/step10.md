@@ -4,7 +4,7 @@ Open the CTA Slider Visualizer, go to the Template Html Editor, and add in a new
 
 &lt;p&gt;&lt;a href=&quot;{{slide1Link}}&quot; data-evtcategory=&quot;CTA&quot; data-evtaction=&quot;Click&quot; data-evtlabel=&quot;{{slide1LinkText}}&quot;&gt;{{slide1CTALinkText}}&lt;/a&gt;&lt;/p&gt;
 
- ![](images/step10-visualizer-editor.png)
+ ![](../images/step10-visualizer-editor.png)
  
 You can use Ctl+Space to get the list of available Content Item fields at any point, as shown above.
 

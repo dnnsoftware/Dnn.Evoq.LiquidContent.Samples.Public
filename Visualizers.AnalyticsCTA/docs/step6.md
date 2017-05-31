@@ -4,7 +4,7 @@ A Carousel Slider is not much use if it doesn&#39;t slide to at least one more i
 
 Edit your Content Type by opening the Content Library, click on &#39;Content Types&#39; and select your Content Type.  Click on the … to find the Edit option.
 
- ![](images/step6-content-library.png)
+ ![](../images/step6-content-library.png)
 
 Once you have your Content Type open, repeat the existing fields 3 times more, to create 4 Image positions.  At the end you should have:
 
@@ -28,7 +28,7 @@ Slide 2 Description : multi line text
 
 .. repeat this for Slide 3 and Slide 4:
 
- ![](images/step6-content-item.png)
+ ![](../images/step6-content-item.png)
 
 Save and Close your Content Item when this is done.
 

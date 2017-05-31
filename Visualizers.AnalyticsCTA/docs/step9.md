@@ -6,7 +6,7 @@ What is required is some extra data in the Content Type.  The extra data require
 
 Open and edit the Content Type  for the CTA Slider and add Single Line Text fields for Slide 1 CTA Link and Slide 1 CTA Link Text.   Then repeat that for Slide 2 CTA Link and Slide 2 CTA Link Text, then Slide 3 and Slide 4 with the same 2 fields.
 
- ![](images/step9-content-type.png)
+ ![](../images/step9-content-type.png)
 
 
 Save and Close the CTA Slider Content Type.   Any new Content Type fields then need to be shown in the Visualizer – the next step is obvious (by now).
