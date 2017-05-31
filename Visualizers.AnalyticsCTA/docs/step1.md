@@ -2,7 +2,7 @@
 
 Liquid Content starts with Content Types.  We&#39;ll create a specific Content Type for holding a set of Content designed for your Carousel (or Slider, as the example shows).
 
-Create a new Content Type called &#39;CTA Slider&#39; by going to Mange-&gt;Content Library-&gt;Content Types, New Content Type.
+Create a new Content Type called &#39;CTA Slider&#39; by going to Manage-&gt;Content Library-&gt;Content Types, New Content Type.
 
 Add the following fields to the Content Type:
 
