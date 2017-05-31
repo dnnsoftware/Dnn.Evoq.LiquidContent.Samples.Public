@@ -4,9 +4,11 @@ Image Carousels are a popular way of displaying multiple content in the same vis
 
 This type of display is ideal for showing a &#39;Call to Action&#39; (CTA) designed to persuade the visitor to go deeper into the site.  It is perfect for use on the home page of a site to pro-actively show options and turn a passive viewer into someone actively consuming content.
 
+![](images/step13-chart.png)
+
 The next best thing to implementing some dynamic content is measure how well it is working.   This makes it easy to identify an underperforming &#39;slide&#39; and replace it with something else.
 
-This tutorial will show you how to build a Carousel visualizer in Liquid Content, and show how to quickly and easily understand how engaged your visitors are with that content through Evoq Analytics.
+This tutorial will show you how to build a Carousel visualizer in Liquid Content, wire up Click Events for tracking in Evoq Analytics and quickly and easily understand how engaged your visitors are with that content.  
 
 There&#39;ll be a small amount of Html coding but the rest is just point and click, so sharpen your html pencil and get your clicking finger ready.
 
