@@ -18,7 +18,7 @@ Slide 1 Description : multi line text
 
 You can arrange the fields in any way you like to make it look simple and easy to fill out.
 
-![](images/step1-slider.png)
+![](../images/step1-slider.png)
 
 Click &#39;Save and Close&#39; when you&#39;re finished.  The Content Type is ready to try out.
 
