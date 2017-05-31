@@ -15,10 +15,5 @@ namespace Evoq.Modules.LiquidContentJobs.Components.Authorization
                 return new TokenCachedService(Constants.ApplicationId, tokenService);
             };
         }
-
-        public static void ClearCache(int portalId, int userId)
-        {
-            TokenCachedService.ClearCache(Constants.ApplicationId, portalId, userId);
-        }
     }
 }

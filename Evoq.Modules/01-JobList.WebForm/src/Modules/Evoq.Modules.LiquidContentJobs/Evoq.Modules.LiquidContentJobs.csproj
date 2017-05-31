@@ -92,7 +92,6 @@
       <Link>SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="Components\Authorization\ScopeManager.cs" />
-    <Compile Include="Components\Authorization\TokenKeyGenerator.cs" />
     <Compile Include="Components\Authorization\TokenServiceImpl.cs" />
     <Compile Include="Components\Constants.cs" />
     <Compile Include="Components\IServiceEndPointsRepository.cs" />
