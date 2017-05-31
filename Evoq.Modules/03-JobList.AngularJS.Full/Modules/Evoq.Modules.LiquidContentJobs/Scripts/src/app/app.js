@@ -1,20 +1,24 @@
 import angular from 'angular';
 import './style.less';
 
-const pageSize = 2;
-
+let paneId = "";
 const url = "https://qa.dnnapi.com/content/api/ContentItems";
 const ctUrl = "https://qa.dnnapi.com/contentapi/ContentTypes";
 
-let app = () => {
+const moduleId = window.dnn.moduleIds[window.dnn.moduleIds.length - 1]
+if (typeof window.app === "undefined" ) {
+  window.app = {}
+}
+
+window.app[moduleId] = () => {
   return {
     template: require('./app.html'),
-    controller: 'job-list-controller',
+    controller: 'job-list-' + moduleId,
     controllerAs: 'app'
   }
 };
 
-class AppCtrl {
+window.app["ctl_" + moduleId] = class  {
   constructor($scope, $http, $compile, $sce) {
     this.$http = $http;
     this.$compile = $compile;
@@ -37,20 +41,20 @@ class AppCtrl {
     $scope.confirmationModal = {
       show: false,
       text: "",
-      onConfirm: () => {}
+      onConfirm: () => { }
     }
 
     const template = require('./app.html');
     const templ = $compile(template)($scope);
-    this.el = document.getElementsByClassName("job-list")[0];
+    this.mainEl = document.getElementById(moduleId);
+    this.el = document.getElementById("ang-" + moduleId);
     this.el.innerHTML = "";
-    const token = this.el.getAttribute("token");
     angular.element(this.el).append(templ);
 
+    const token = this.mainEl.getAttribute("token");
     this.APIkey = `Bearer ${token}`;
-
-    this.pageSize = this.el.getAttribute("pagesize");
-    $scope.mode = this.el.getAttribute("mode");
+    this.pageSize = this.mainEl.getAttribute("pagesize");
+    $scope.mode = this.mainEl.getAttribute("mode");
     this.getContentTypeId();
 
     $scope.toTrustedHTML = function (html) {
@@ -99,7 +103,7 @@ class AppCtrl {
     this.$scope.jobBeingEdited = null;
   }
 
-  onSave (job) {
+  onSave(job) {
     this.$http.put(`${url}/${job.id}`, this.$scope.jobBeingEdited, { headers: { authorization: this.APIkey } }).then((data) => {
       job.details.description = this.$scope.jobBeingEdited.details.description;
       job.details.jobTitle = this.$scope.jobBeingEdited.details.jobTitle;
@@ -144,14 +148,14 @@ class AppCtrl {
   }
 
   loadPage() {
-    this.$http.get(`${url}?contentTypeId=${this.contentTypeId}&startIndex=${this.$scope.currentIndex * pageSize}&maxItems=${pageSize}`, { headers: { authorization: this.APIkey } }).then((data) => {
+    this.$http.get(`${url}?contentTypeId=${this.contentTypeId}&startIndex=${this.$scope.currentIndex * this.pageSize}&maxItems=${this.pageSize}`, { headers: { authorization: this.APIkey } }).then((data) => {
       this.$scope.jobList = data.data.documents;
       this.updatePages(data.data.totalResultCount);
     });
   }
 
   updatePages(totalResultCount) {
-    const qtyPages = Math.ceil(totalResultCount / pageSize);
+    const qtyPages = Math.ceil(totalResultCount / this.pageSize);
     const pages = [];
     for (let i = 0; i < qtyPages; i++) {
       pages.push({ pageNumber: i + 1, pageIndex: i });
@@ -164,7 +168,7 @@ class AppCtrl {
     const templ = this.$compile(template)(this.$scope);
     angular.element(this.el).append(templ);
   }
-  
+
   addConfirmationModal() {
     const template = require('./confirmationModal.html');
     const templ = this.$compile(template)(this.$scope);
@@ -172,12 +176,18 @@ class AppCtrl {
   }
 }
 
-AppCtrl.$inject = ["$scope", "$http", "$compile", "$sce"];
+window.app["ctl_" + moduleId].$inject = ["$scope", "$http", "$compile", "$sce"];
 
-const MODULE_NAME = 'app';
+const MODULE_NAME = moduleId;
 
 angular.module(MODULE_NAME, [])
-  .directive('app', app)
-  .controller('job-list-controller', AppCtrl);
+  .directive('app-' + moduleId, app)
+  .controller('job-list-' + moduleId, window.app["ctl_" + moduleId]);
 
-export default MODULE_NAME;
+clearTimeout(window.timeOut);
+window.timeOut = setTimeout(() => {
+  angular.bootstrap(document, window.dnn.moduleIds);
+}, 0);
+
+export default window.app[moduleId];
+
