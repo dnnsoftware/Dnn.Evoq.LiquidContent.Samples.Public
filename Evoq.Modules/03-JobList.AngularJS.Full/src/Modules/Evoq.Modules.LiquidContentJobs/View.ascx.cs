@@ -15,14 +15,14 @@ namespace Evoq.Modules.LiquidContentJobs
             if (!ModulePermissionController.CanEditModuleContent(ModuleConfiguration))
             {
                 authToken = TokenServiceImpl.Instance.ObtainToken(PortalSettings.PortalId, UserInfo.UserID);
-                ScopeWrapper.Attributes["mode"] = "0";
+                ScopeWrapper.Attributes["mode"] = "view";
             }
             else
             {
                 var isAdmin = UserInfo.IsInRole(RoleController.Instance.GetRoleById(PortalId, PortalSettings.AdministratorRoleId).RoleName);
                 authToken = TokenServiceImpl.Instance.ObtainToken(PortalSettings.PortalId, UserInfo.UserID,
                     new[] { isAdmin? Common.Constants.AdminsRoleName : Common.Constants.ContentEditorRoleName});
-                ScopeWrapper.Attributes["mode"] = "1";
+                ScopeWrapper.Attributes["mode"] = "edit";
             }
             ScopeWrapper.Attributes["token"] = authToken;
             ScopeWrapper.Attributes["pageSize"] = ModuleContext.Settings["PageSize"] != null ? ModuleContext.Settings["PageSize"] as string : "5";
