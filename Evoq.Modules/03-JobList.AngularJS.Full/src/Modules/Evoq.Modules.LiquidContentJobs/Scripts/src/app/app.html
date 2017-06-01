@@ -1,9 +1,9 @@
 <div>
   <header>
     <h2>Job List</h2>
-    <div ng-hide="mode == 0" ng-click="togglePanel()">{{buttonText}}</div>
+    <div ng-hide="mode !== 'edit'" ng-click="togglePanel($event)">{{buttonText}}</div>
   </header>
-  <div ng-hide="mode == 0" ng-class="{'form-pane ': !showForm, 'form-pane show': showForm}">
+  <div ng-hide="mode !== 'edit'" ng-class="{'form-pane ': !showForm, 'form-pane show': showForm}">
     <form ng-submit="onSubmit()">
       <input type="text" placeholder="Job Name" ng-model="formData.jobTitle">
       <textarea placeholder="Description" ng-model="formData.description"></textarea>
@@ -17,14 +17,14 @@
     <div ng-hide="jobBeingEdited && job.id === jobBeingEdited.id">
       <h3>{{job.details.jobTitle}}
         <div class="buttons-group">
-          <div class="remove" ng-hide="mode == 0" ng-click="onRemove(job)">Remove</div>
-          <div class="edit" ng-hide="mode == 0" ng-click="onEdit(job)">Edit</div>
+          <div class="remove" ng-hide="mode !== 'edit'" ng-click="onRemove(job)">Remove</div>
+          <div class="edit" ng-hide="mode !== 'edit'" ng-click="onEdit(job)">Edit</div>
         </div>
       </h3>
       <job-description ng-bind-html="toTrustedHTML(job.details.description)"></job-description>
     </div>
 
-    <div ng-hide="mode == 0 ||!jobBeingEdited || job.id !== jobBeingEdited.id ">
+    <div ng-hide="mode !== 'edit' ||!jobBeingEdited || job.id !== jobBeingEdited.id ">
       <h3>
         <input type="text" placeholder="Job Name" ng-model="jobBeingEdited.details.jobTitle">
         <div class="buttons-group">

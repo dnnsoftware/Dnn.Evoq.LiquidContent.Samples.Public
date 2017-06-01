@@ -1,6 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="View.ascx.cs" Inherits="Evoq.Modules.LiquidContentJobs.View" %>
 <div runat="server" ID="ScopeWrapper" class="job-list">
-<div  ng-app="<%= ScopeWrapper.ClientID %>" id='ang-<%= ScopeWrapper.ClientID %>' ng-controller="job-list-<%= ScopeWrapper.ClientID %>"></div>
+<div ng-controller="job-list-<%= ScopeWrapper.ClientID %>">
+    <div id='ang-<%= ScopeWrapper.ClientID %>'></div>
+</div>
 
 <script>
     if (typeof window.dnn.moduleIds === "undefined") {

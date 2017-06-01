@@ -1,12 +1,12 @@
-import angular from 'angular';
 import './style.less';
 
+import angular from 'angular';
 let paneId = "";
 const url = "https://qa.dnnapi.com/content/api/ContentItems";
 const ctUrl = "https://qa.dnnapi.com/contentapi/ContentTypes";
 
 const moduleId = window.dnn.moduleIds[window.dnn.moduleIds.length - 1]
-if (typeof window.app === "undefined" ) {
+if (typeof window.app === "undefined") {
   window.app = {}
 }
 
@@ -18,7 +18,7 @@ window.app[moduleId] = () => {
   }
 };
 
-window.app["ctl_" + moduleId] = class  {
+window.app["ctl_" + moduleId] = class {
   constructor($scope, $http, $compile, $sce) {
     this.$http = $http;
     this.$compile = $compile;
@@ -56,7 +56,6 @@ window.app["ctl_" + moduleId] = class  {
     this.pageSize = this.mainEl.getAttribute("pagesize");
     $scope.mode = this.mainEl.getAttribute("mode");
     this.getContentTypeId();
-
     $scope.toTrustedHTML = function (html) {
       return $sce.trustAsHtml(html);
     };
@@ -130,7 +129,7 @@ window.app["ctl_" + moduleId] = class  {
     });
   }
 
-  togglePanel() {
+  togglePanel(ev) {
     this.$scope.showForm = !this.$scope.showForm;
     this.$scope.buttonText = this.$scope.showForm ? "Cancel" : "Add New";
   }
@@ -187,7 +186,7 @@ angular.module(MODULE_NAME, [])
 clearTimeout(window.timeOut);
 window.timeOut = setTimeout(() => {
   angular.bootstrap(document, window.dnn.moduleIds);
-}, 0);
+}, 100);
 
 export default window.app[moduleId];
 
