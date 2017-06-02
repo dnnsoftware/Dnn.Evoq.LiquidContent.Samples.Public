@@ -33,7 +33,7 @@ ng-model // bindes input field with the variable provided
  
 ![Screenshot1](images/screenshot3.png)
  
-Add Remove and Edit buttons to the job-item. Provide onRemove and onEdit function accordinaly 
+Add Remove and Edit buttons to the job-item. Provide onRemove and onEdit function accordingly 
  
 ![Screenshot1](images/screenshot4.png)
  
@@ -76,11 +76,11 @@ ng-click="selectPage(page.pageIndex)" // selects a page on click
  
 Add ConfirmationModal.html will serve as a confirmation modal that pops up on Remove event. It will ask for confirmation before removing an item. 
  
-Add "show" class to the modal if confirmationModal.show iqual to true.
+Add "show" class to the modal if confirmationModal.show equal to true.
  
 ![Screenshot1](images/screenshot8.png)
  
-We assume that the modal will be used not only for confirmation of deletion operation. That's why we need dinamic text in the modal:
+We assume that the modal will be used not only for confirmation of deletion operation. That's why we need dynamic text in the modal:
 ```
 {{confirmationModal.text}}
 ```
@@ -94,7 +94,7 @@ Add Yes and Cancel buttons. They will fire onConfirm() and hideModal() according
  
 # APP.js
  
-## Pagenation
+## Pagination
  
 In the constructor of the controller add the following:
  
@@ -140,7 +140,7 @@ Add onRemove function(). This function is called when Remove button is clicked. 
 ![Screenshot1](images/screenshot19.png)
  
 Add onDelete method to the controller class. This method will be called after user clicks Yes button in the Confirmation Modal.
-This method calls delete API using job.id and APIkey. After the item is deleted it calls loadPage() function Asynchronosly.
+This method calls delete API using job.id and APIkey. After the item is deleted it calls loadPage() function Asynchronously.
  
 ![Screenshot1](images/screenshot20.png)
  
@@ -162,19 +162,19 @@ $scope.formData = { jobTitle: "", description: "" };
 ![Screenshot1](images/screenshot23.png)
  
 Add togglePanel method to the controller class. This method will be called when Add New button is clicked.
-It toggles the new item form panel and changes text of the button to "Cancel" or "Add New" depending on wether the panel is opened or closed.
+It toggles the new item form panel and changes text of the button to "Cancel" or "Add New" depending on whether the panel is opened or closed.
  
 ![Screenshot1](images/screenshot22.png)
  
-Add onSubmites method to the controller class. This method is called when user clickes Add button under the new item form.
-It submitse the data user is added and calles post request to the server.
-After post request returnes result, it resets pagination, setting currentIndex to 0 and toggles the form pannel to close it.
+Add onSubmites method to the controller class. This method is called when user clicks Add button under the new item form.
+It submits the data user is added and calls post request to the server.
+After post request returns result, it resets pagination, setting currentIndex to 0 and toggles the form panel to close it.
  
 ![Screenshot1](images/screenshot24.png)
  
 ## Edit Job Item
  
-In the constructor of the controller add jobBeingEdited variable. This object will keep information about what job item is edited in curent moment.
+In the constructor of the controller add jobBeingEdited variable. This object will keep information about what job item is edited in current moment.
  
 ![Screenshot1](images/screenshot25.png)
  
@@ -182,9 +182,9 @@ Add onEdit(), onCancelEdit() and onSave() methods to the controller class.
  
 *onEdit()* method is called when user clicks the Edit button. It clones the job item object to the jobBeingEdited object. 
  
-*onCancelEdit()* method is called when user clickes Cancel button. It resets jobBeingEdited to null
+*onCancelEdit()* method is called when user clicks Cancel button. It resets jobBeingEdited to null
  
-*onSave()* method is called when user clicks Save button. It calles put request to the server, using jobBeingEdited object as a parametr. After the call is done it resetes all paramtres of job item to parametres of jobBeingEdited. After that it resets jobBeingEdited to null.
+*onSave()* method is called when user clicks Save button. It calles put request to the server, using jobBeingEdited object as a parameter. After the call is done it resets all parameters of job item to parametres of jobBeingEdited. After that it resets jobBeingEdited to null.
  
 ![Screenshot1](images/screenshot27.png)
  
