@@ -27,12 +27,14 @@ window.app["ctl_" + moduleId] = class {
 
     const template = require('./app.html');
     const templ = $compile(template)($scope);
-    this.mainEl = document.getElementById(moduleId);
     this.el = document.getElementById("ang-" + moduleId);
     this.el.innerHTML = "";
     angular.element(this.el).append(templ);
+
+    this.mainEl = document.getElementById(moduleId);
     const token = this.mainEl.getAttribute("token");
     this.APIkey = `Bearer ${token}`;
+
     this.getContentTypeId();
     $scope.toTrustedHTML = function (html) {
       return $sce.trustAsHtml(html);
@@ -52,7 +54,8 @@ window.app["ctl_" + moduleId] = class {
   }
 
   loadPage() {
-    this.$http.get(`${url}?contentTypeId=${this.contentTypeId}`, { headers: { authorization: this.APIkey } }).then((data) => {
+    this.$http.get(`${url}?contentTypeId=${this.contentTypeId}`, 
+      { headers: { authorization: this.APIkey } }).then((data) => {
       this.$scope.jobList = data.data.documents;
     });
   }
@@ -60,9 +63,7 @@ window.app["ctl_" + moduleId] = class {
 
 window.app["ctl_" + moduleId].$inject = ["$scope", "$http", "$compile", "$sce"];
 
-const MODULE_NAME = moduleId;
-
-angular.module(MODULE_NAME, [])
+angular.module(moduleId, [])
   .directive('app-' + moduleId, app)
   .controller('job-list-' + moduleId, window.app["ctl_" + moduleId]);
 
