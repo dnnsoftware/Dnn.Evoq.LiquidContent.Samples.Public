@@ -1,6 +1,6 @@
 # Evoq Modules - Liquid Content Job List With Edit Functionality and Pagination
  
-This is a sample DNN module to access Liquid Content using Angular JS v.1.6. A bearer token with read and write permission for Liquid Content is generated on the server side and passed to the front-end.
+This is a sample DNN module to access Liquid Content using Angular JS v.1.6. A bearer token with read and write permissions for Liquid Content is generated on the server side and passed to the front-end.
 This module includes Edit, Add New and Remove functionality as well as pagination. Also it includes server side authentication to decide the mode for the application: "read" or "edit".
  
 This documentation is a continuation of documentation for the read-only Evoq.Module. Please refer to the previous [documentation](https://github.com/dnnsoftware/Dnn.Evoq.LiquidContent.Samples.Public/tree/master/Evoq.Modules/02-JobList.AngularJS.Simple)
@@ -33,7 +33,7 @@ ng-model // bindes input field with the variable provided
  
 ![Screenshot1](images/screenshot3.png)
  
-Add Remove and Edit buttons to the job-item. Provide onRemove and onEdit function accordingly 
+Add Remove and Edit buttons to the job-item. Provide onRemove and onEdit methods accordingly 
  
 ![Screenshot1](images/screenshot4.png)
  
@@ -55,7 +55,7 @@ Add ng-model directive to bind the input elements to the variables provided:
 ng-model="jobBeingEdited.details.jobTitle"
 ng-model="jobBeingEdited.details.description"
 ```
-Add save and cancel button that calls onSave() and onCancelEdit() functions accordingly:
+Add save and cancel button that calls onSave and onCancelEdit methods accordingly:
  
 ![Screenshot1](images/screenshot5.png)
  
@@ -76,7 +76,7 @@ ng-click="selectPage(page.pageIndex)" // selects a page on click
  
 Add ConfirmationModal.html will serve as a confirmation modal that pops up on Remove event. It will ask for confirmation before removing an item. 
  
-Add "show" class to the modal if confirmationModal.show equal to true.
+Add "show" class to the modal if confirmationModal.show equals to true.
  
 ![Screenshot1](images/screenshot8.png)
  
@@ -87,7 +87,7 @@ We assume that the modal will be used not only for confirmation of deletion oper
  
 ![Screenshot1](images/screenshot9.png)
  
-Add Yes and Cancel buttons. They will fire onConfirm() and hideModal() accordingly.
+Add Yes and Cancel buttons. They will fire onConfirm and hideModal methods accordingly.
  
 ![Screenshot1](images/screenshot10.png)
  
@@ -108,15 +108,15 @@ Get page size from the Evoq.Module settings
  
 ![Screenshot1](images/screenshot12.png)
  
-Add selectPage function that will fire when a page is clicked and it will change currentIndex and load job list items for the page.
+Add selectPage method that will fire when a page is clicked and it will change currentIndex and load job list items for the page.
  
 ![Screenshot1](images/screenshot13.png)
  
-Add appliesClass function that changes class of a button to "current-page" if the page is current.
+Add appliesClass method that changes class of a button to "current-page" if the page is current.
  
 ![Screenshot1](images/screenshot14.png)
  
-Add createPages method to the controller class. This method append pager template to the DOM and compiles it using $compile service
+Add createPages method to the controller class. This method appends pager template to the DOM and compiles it using $compile service
  
 ![Screenshot1](images/screenshot15.png)
  
@@ -135,12 +135,12 @@ Add addConfirmationModal method to the controller class. This method appends the
  
 ![Screenshot1](images/screenshot18.png)
  
-Add onRemove function(). This function is called when Remove button is clicked. This function defines text for the modal, onCofirm function. And it shows the module.
+Add onRemove method. This method is called when Remove button is clicked. This method defines text for the modal, onCofirm method. And it shows the module.
  
 ![Screenshot1](images/screenshot19.png)
  
 Add onDelete method to the controller class. This method will be called after user clicks Yes button in the Confirmation Modal.
-This method calls delete API using job.id and APIkey. After the item is deleted it calls loadPage() function Asynchronously.
+This method calls delete API using job.id and token. After the item is deleted it calls loadPage method asynchronously.
  
 ![Screenshot1](images/screenshot20.png)
  
@@ -178,13 +178,13 @@ In the constructor of the controller add jobBeingEdited variable. This object wi
  
 ![Screenshot1](images/screenshot25.png)
  
-Add onEdit(), onCancelEdit() and onSave() methods to the controller class.
+Add onEdit, onCancelEdit and onSave methods to the controller class.
  
 *onEdit()* method is called when user clicks the Edit button. It clones the job item object to the jobBeingEdited object. 
  
 *onCancelEdit()* method is called when user clicks Cancel button. It resets jobBeingEdited to null
  
-*onSave()* method is called when user clicks Save button. It calles put request to the server, using jobBeingEdited object as a parameter. After the call is done it resets all parameters of job item to parametres of jobBeingEdited. After that it resets jobBeingEdited to null.
+*onSave()* method is called when user clicks Save button. It calls put request to the server, using jobBeingEdited object as a parameter. After the call is done it resets all parameters of job item to parameters of jobBeingEdited. After that it resets jobBeingEdited to null.
  
 ![Screenshot1](images/screenshot27.png)
  
