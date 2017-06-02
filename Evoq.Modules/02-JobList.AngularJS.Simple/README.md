@@ -7,7 +7,7 @@ This is a sample DNN module to access Liquid Content using Angular JS. A bearer 
 
 ## View
 
-Angular directives add to View.ascx. Also div with unique id added to the View. It will serve as a container for Angular application 
+Add angular directives to View.ascx. Also add div with unique id. It will be a container for Angular application. 
 
 ![Screenshot2](images/screenshot2.png)
 
