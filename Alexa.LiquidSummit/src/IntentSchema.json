@@ -1,0 +1,19 @@
+{
+  "intents": [
+    {
+      "intent": "AMAZON.CancelIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "GetSpeaker"
+    },
+    {
+      "intent": "SendDirections"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+﻿GetSpeaker Tell me about the keynote speaker
+GetSpeaker Who is the keynote speaker
+GetSpeaker Who is giving the keynote
+GetSpeaker Tell me about the conference keynote speaker
+SendDirections Send me directions to the conference
+SendDirections Send me directions
+SendDirections Send me conference information
