@@ -37,7 +37,7 @@ Alexa Skills (and most VUI Applications) are generally composed of three major c
 
 ![VUI Stack](docs/images/main_VUI-Stack.png)
 
-The voice engine for Alexa skills is configured using the [Alexa Skills Kit](https://developer.amazon.com/edw/home.html#/skills). For this tutorial we will host our application code on [AWS Lambda](https://aws.amazon.com/lambda/). We'll us the AWS Toolkit for Visual Studio to create our code in C#. Finally, we will use Liquid Content for managing the structured content that we will make available to our Alexa Skill.
+The voice engine for Alexa skills is configured using the [Alexa Skills Kit](https://developer.amazon.com/edw/home.html#/skills). For this tutorial we will host our application code on [AWS Lambda](https://aws.amazon.com/lambda/), and use the AWS Toolkit for Visual Studio to create our code in C#. Finally, we will use Liquid Content for managing the structured content that we'll use for our Alexa Skill.
 
 # Section Index
 1. [Creating the Liquid Summit Website](docs/1_Setup_Liquid_Content.md)
