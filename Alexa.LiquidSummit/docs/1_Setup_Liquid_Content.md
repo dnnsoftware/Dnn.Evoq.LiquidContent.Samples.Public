@@ -7,7 +7,7 @@
 
 Liquid Summit is a fictitious conference website created using Liquid Content. In order to enable Alexa to access content on this site we'll need to build out a few content-types first and start creating some content.
 
-![Liquid Summit](images/services_Liquid-Summit.png)
+![Liquid Summit](images/services_liquid-summit.png)
 
 ## Creating the Content Types
 Liquid Content ships with four (4) content types: 
