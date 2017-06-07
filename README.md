@@ -33,3 +33,6 @@ We have created a variety of different samples to help you get started with [Liq
 
 Please visit the [Liquid Content developer site](http://www.builtwithdnn.com) to leave comments and send us feedback.
 
+#### Logging Issues and Contributing
+Feel free to log issues here in Github if you run into problems with any of the above projects. If we've missed something in these samples, please feel free to submit a Pull Request with the change. We will continue to maintain and improve these samples as we make updates to Liquid Content.
+
