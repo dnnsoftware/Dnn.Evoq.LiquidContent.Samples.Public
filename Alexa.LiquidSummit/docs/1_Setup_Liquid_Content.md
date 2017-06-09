@@ -1,6 +1,6 @@
 # Section Index
 1. [Creating the Liquid Summit Website](docs/1_Setup_Liquid_Content.md)
-2. [Creating the AWS Lambda Project](docs/2_Create_AWS_Lambda_Project.md)
+2. [Creating the AWS Lambda Project](/docs/2_Create_AWS_Lambda_Project.md)
 
    1. [Building the Basic Alexa Framework](docs/2-1_Create_Basic_Framework.md)
    2. [Building the Application Logic for Alexa](docs/2-2_Create_Application_Logic.md)
