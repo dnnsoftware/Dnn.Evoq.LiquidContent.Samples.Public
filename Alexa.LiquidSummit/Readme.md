@@ -40,13 +40,13 @@ Alexa Skills (and most VUI Applications) are generally composed of three major c
 The voice engine for Alexa skills is configured using the [Alexa Skills Kit](https://developer.amazon.com/edw/home.html#/skills). For this tutorial we will host our application code on [AWS Lambda](https://aws.amazon.com/lambda/), and use the AWS Toolkit for Visual Studio to create our code in C#. Finally, we will use Liquid Content for managing the structured content that we'll use for our Alexa Skill.
 
 # Section Index
-1. [Creating the Liquid Summit Website](/docs/1_Setup_Liquid_Content.md)
-2. [Creating the AWS Lambda Project](/docs/2_Create_AWS_Lambda_Project.md)
+1. [Creating the Liquid Summit Website](docs/1_Setup_Liquid_Content.md)
+2. [Creating the AWS Lambda Project](docs/2_Create_AWS_Lambda_Project.md)
 
-   i. [Building the Basic Alexa Framework](/docs/2-1_Create_Basic_Framework.md)
-   i. [Building the Application Logic for Alexa](/docs/2-2_Create_Application_Logic.md)
-   i. [Using the Liquid Content API](/docs/2-3_Use_Liquid_Content_API.md)
-   i. [Publishing to AWS](/docs/2-4_Publishing_Lambda.md)
-   i. [Using the Liquid Content API](docs/2-5_Testing_Lambda_Function.md)
+   1. [Building the Basic Alexa Framework](docs/2-1_Create_Basic_Framework.md)
+   2. [Building the Application Logic for Alexa](docs/2-2_Create_Application_Logic.md)
+   3. [Using the Liquid Content API](docs/2-3_Use_Liquid_Content_API.md)
+   4. [Publishing to AWS](docs/2-4_Publishing_Lambda.md)
+   5. [Using the Liquid Content API](docs/2-5_Testing_Lambda_Function.md)
 
-3. [Configuring the Alexa Skill](/docs/3_Configure_Alexa_Skill.md)
+3. [Configuring the Alexa Skill](docs/3_Configure_Alexa_Skill.md)
