@@ -1,14 +1,14 @@
 # Section Index
-1. [Creating the Liquid Summit Website](docs/1_Setup_Liquid_Content.md)
-2. [Creating the AWS Lambda Project](docs/2_Create_AWS_Lambda_Project.md)
+1. [Creating the Liquid Summit Website](/docs/1_Setup_Liquid_Content.md)
+2. [Creating the AWS Lambda Project](/docs/2_Create_AWS_Lambda_Project.md)
 
-   1. [Building the Basic Alexa Framework](docs/2-1_Create_Basic_Framework.md)
-   2. [Building the Application Logic for Alexa](docs/2-2_Create_Application_Logic.md)
-   3. [Using the Liquid Content API](docs/2-3_Use_Liquid_Content_API.md)
-   4. [Publishing to AWS](docs/2-4_Publishing_Lambda.md)
-   5. [Using the Liquid Content API](docs/2-5_Testing_Lambda_Function.md)
+   i. [Building the Basic Alexa Framework](/docs/2-1_Create_Basic_Framework.md)
+   i. [Building the Application Logic for Alexa](/docs/2-2_Create_Application_Logic.md)
+   i. [Using the Liquid Content API](/docs/2-3_Use_Liquid_Content_API.md)
+   i. [Publishing to AWS](/docs/2-4_Publishing_Lambda.md)
+   i. [Using the Liquid Content API](docs/2-5_Testing_Lambda_Function.md)
 
-3. [Configuring the Alexa Skill](docs/3_Configure_Alexa_Skill.md)
+3. [Configuring the Alexa Skill](/docs/3_Configure_Alexa_Skill.md)
 
 # Creating the Content for the Liquid Summit
 
