@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using Amazon.Lambda.Core;
+using Alexa.NET;
 using Alexa.NET.Request;
 using Alexa.NET.Response;
 using System.Net.Http;
@@ -36,12 +37,11 @@ namespace Dnn.Alexa.Summit.Lambda
         // This will hold whatever ContentTypes we want to work with
         public Dictionary<ContentTypes, String> ContentTypeIdList = new Dictionary<ContentTypes, string>();
 
-        private readonly IDictionary<string, Func<SkillRequest, ResponseBody>> handlers;
+        private readonly IDictionary<string, Func<SkillRequest, SkillResponse>> handlers;
 
         public Function()
         {
-
-            handlers = new Dictionary<string, Func<SkillRequest, ResponseBody>>() {
+            handlers = new Dictionary<string, Func<SkillRequest, SkillResponse>>() {
                 { "LaunchRequest", HandleLaunchRequest },
                 { "IntentRequest", HandleIntentRequest },
                 { "SessionEndedRequest", HandleSessionEndRequest },
@@ -49,12 +49,11 @@ namespace Dnn.Alexa.Summit.Lambda
                 { "SendDirections", HandleSendDirectionsIntent },
                 { "GetSpeaker", HandleGetSpeakerIntent },
             };
-
         }
 
         // Intent handlers encapsulate the business logic for each custom intent
         #region Intent Handlers
-        public ResponseBody HandleSendDirectionsIntent(SkillRequest input)
+        public SkillResponse HandleSendDirectionsIntent(SkillRequest input)
         {
             // Log the method type for debugging purposes
             Context.Logger.LogLine("Calling SendDirections Intent");
@@ -65,29 +64,43 @@ namespace Dnn.Alexa.Summit.Lambda
 
             var directions = GetDirectionsAsync().Result;
 
-            if (directions is null) { return BuildResponse(title, speech, true); }
-
-            return new ResponseBody()
+            if (directions is null)
             {
-                Card = new StandardCard()
-                {
-                    Title = $"{title}",
-                    Content = $"{directions.details.directions}",
-                    Image = new CardImage
+                return ResponseBuilder.TellWithCard(
+                    new PlainTextOutputSpeech()
                     {
-                        SmallImageUrl = directions.details.mapImage.First().url,
-                        LargeImageUrl = directions.details.mapImage.First().url
-                    }
-                },
-                OutputSpeech = new PlainTextOutputSpeech()
+                        Text = speech
+                    },
+                    title,
+                    speech
+                );
+            }
+
+            return new SkillResponse()
+            {
+                Version = "1.0",
+                Response = new ResponseBody()
                 {
-                    Text = speech
-                },
-                ShouldEndSession = true
+                    Card = new StandardCard()
+                    {
+                        Title = $"{title}",
+                        Content = $"{directions.details.directions}",
+                        Image = new CardImage
+                        {
+                            SmallImageUrl = directions.details.mapImage.First().url,
+                            LargeImageUrl = directions.details.mapImage.First().url
+                        }
+                    },
+                    OutputSpeech = new PlainTextOutputSpeech()
+                    {
+                        Text = speech
+                    },
+                    ShouldEndSession = true
+                }
             };
         }
 
-        public ResponseBody HandleGetSpeakerIntent(SkillRequest input)
+        public SkillResponse HandleGetSpeakerIntent(SkillRequest input)
         {
             // Log the method type for debugging purposes
             Context.Logger.LogLine("Calling GetSpeaker Intent");
@@ -103,7 +116,15 @@ namespace Dnn.Alexa.Summit.Lambda
                 speech += $"{ response.title} will be the keynote speaker at the Liquid Summit conference. ";
                 speech += $"{response.shortBiography}";
             }
-            return BuildResponse(title, speech, true);
+
+            return ResponseBuilder.TellWithCard(
+                new PlainTextOutputSpeech()
+                {
+                    Text = speech
+                },
+                title,
+                speech            
+            );
         }
         #endregion
 
@@ -178,19 +199,18 @@ namespace Dnn.Alexa.Summit.Lambda
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public ResponseBody HandleLaunchRequest(SkillRequest input)
+        public SkillResponse HandleLaunchRequest(SkillRequest input)
         {
             // Log the method type for debugging purposes
             Context.Logger.LogLine("Calling HandleLaunchRequest");
 
-            return new ResponseBody()
-            {
-                OutputSpeech = new PlainTextOutputSpeech()
+            return ResponseBuilder.Tell(
+                new PlainTextOutputSpeech()
                 {
                     Text = "Welcome to the Liquid Summit. I am here to help you find your way around the conference."
-                },
-                ShouldEndSession = true
-            };
+                }
+            );
+
         }
 
         /// <summary>
@@ -200,7 +220,7 @@ namespace Dnn.Alexa.Summit.Lambda
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public ResponseBody HandleIntentRequest(SkillRequest input)
+        public SkillResponse HandleIntentRequest(SkillRequest input)
         {
             // Log the method type for debugging purposes
             Context.Logger.LogLine("Calling HandleRequest");
@@ -208,41 +228,12 @@ namespace Dnn.Alexa.Summit.Lambda
             return handlers[request.Intent.Name](input);
         }
 
-        public ResponseBody HandleSessionEndRequest(SkillRequest input)
+        public SkillResponse HandleSessionEndRequest(SkillRequest input)
         {
             // Log the method type for debugging purposes
             Context.Logger.LogLine("Calling HandleSessionEndRequest");
 
-            return new ResponseBody()
-            {
-                OutputSpeech = new PlainTextOutputSpeech()
-                {
-                    Text = "Result"
-                }
-            };
-
-        }
-
-        #endregion
-
-        #region Helpers
-
-        private ResponseBody BuildResponse(string title, string output, bool shouldEndSession)
-        {
-            return new ResponseBody()
-            {
-                Card = new SimpleCard()
-                {
-                    Title = $"{title}",
-                    Content = $"{output}"
-                },
-                OutputSpeech = new PlainTextOutputSpeech()
-                {
-                    Text = output
-                },
-                ShouldEndSession = shouldEndSession
-            };
-
+            return ResponseBuilder.Empty();
         }
 
         #endregion
@@ -269,12 +260,7 @@ namespace Dnn.Alexa.Summit.Lambda
                 Context.Logger.LogLine($"{t}: {ContentTypeIdList[val]}");
             }
 
-            return new SkillResponse()
-            {
-                Version = "1.0",
-                Response = handlers[input.Request.Type](input)
-            };
-
+            return handlers[input.Request.Type](input);
         }
 
     }
