@@ -100,5 +100,5 @@ The last step to complete our site and get it ready for our Alexa skill is to cr
 
 At this point, you should have a site with several person content items defined. You also have a new Event Directions type and a single content item of this type. Finally, you created a new API key that we'll use in our application. You are now ready to begin writing your application code.
 
-
-Go to the next section: [Creating the AWS Lambda Project](docs/2_Create_AWS_Lambda_Project.md)
+Previous:   [Introduction](../Readme.md)
+Next:       [Creating the AWS Lambda Project](2_Create_AWS_Lambda_Project.md)

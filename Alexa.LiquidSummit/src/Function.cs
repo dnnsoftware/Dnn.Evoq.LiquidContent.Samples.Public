@@ -26,16 +26,16 @@ namespace Dnn.Alexa.Summit.Lambda
     public class Function
     {
         // URL templates for Liquid Content
-        const string directionsUrl = "https://dnnapi.com/content/api/ContentItems/?maxItems=20&contentTypeId={0}";
-        const string speakerUrl = "https://dnnapi.com/content/api/ContentItems/?maxItems=20&tags={1}&contentTypeId={0}";
+        const string contentUrl = "https://dnnapi.com/content/api/ContentItems/?maxItems=1&tags={1}&contentTypeId={0}";
 
-        public ILambdaContext Context { get; set; }
+
+        private ILambdaContext Context { get; set; }
 
         // Liquid Content requires an API Key to access the APIs
-        public String ApiKey { get; set; }
+        private String ApiKey { get; set; }
 
         // This will hold whatever ContentTypes we want to work with
-        public Dictionary<ContentTypes, String> ContentTypeIdList = new Dictionary<ContentTypes, string>();
+        private Dictionary<ContentTypes, String> ContentTypeIdList = new Dictionary<ContentTypes, string>();
 
         private readonly IDictionary<string, Func<SkillRequest, SkillResponse>> handlers;
 
@@ -133,7 +133,7 @@ namespace Dnn.Alexa.Summit.Lambda
         private async Task<SpeakerDetails> GetKeynoteSpeakerAsync()
         {
 
-            string url = string.Format(speakerUrl, ContentTypeIdList[ContentTypes.EventSpeaker], "keynote");
+            string url = string.Format(contentUrl, ContentTypeIdList[ContentTypes.EventSpeaker], "keynote");
 
             var json = await GetContentAsync(url);
 
@@ -157,7 +157,7 @@ namespace Dnn.Alexa.Summit.Lambda
 
         private async Task<Direction> GetDirectionsAsync()
         {
-            string url = string.Format(directionsUrl, ContentTypeIdList[ContentTypes.Directions]);
+            string url = string.Format(contentUrl, ContentTypeIdList[ContentTypes.Directions], string.Empty);
 
             var json = await GetContentAsync(url);
 
