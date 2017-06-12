@@ -37,7 +37,7 @@ In order to publish to AWS you will need to setup an AWS Profile in Visual Studi
 
     ![IAM Create Group](images/publish_iam-new-group.png)
 
-   The AWSLambdaFullAccess policy provides full access to CloudWatch, DynamoDB, Lambda, S3 and XRAY services.
+   The AWSLambdaFullAccess policy provides full access to [CloudWatch](https://aws.amazon.com/cloudwatch/?nc2=h_m1), [DynamoDB](https://aws.amazon.com/dynamodb/?nc2=h_m1), Lambda, [S3](https://aws.amazon.com/s3/?nc2=h_m1) and [X-Ray](https://aws.amazon.com/xray/?nc2=h_m1) services.
 
 6. You should see the newly created group in your group list.  Select the group you just created and click the _Next: Review_ button.
 
