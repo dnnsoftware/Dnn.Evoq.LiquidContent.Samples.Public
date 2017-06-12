@@ -6,7 +6,7 @@
    2. [Building the Application Logic for Alexa](2-2_Create_Application_Logic.md)
    3. [Using the Liquid Content API](2-3_Use_Liquid_Content_API.md)
    4. [Publishing to AWS](2-4_Publishing_Lambda.md)
-   5. [Using the Liquid Content API](2-5_Testing_Lambda_Function.md)
+   5. [Testing the Troubleshooting](2-5_Testing_Lambda_Function.md)
 
 3. [Configuring the Alexa Skill](3_Configure_Alexa_Skill.md)
 
@@ -36,7 +36,7 @@ public SkillResponse HandleLaunchRequest(SkillRequest input)
 
 One of the first things I do in my method is to create an entry in the event log. Since my code is going to run on AWS, and I don't have an easy way to attach a debugger, I am fairly liberal with my logging code. All of the logging output will automatically get stored in AWS CloudWatch. The Context object was previously stored in a local property in our main `FunctionHandler`.
 
-After logging some basic context infomation, I use the Alexa.NET helper `ResponseBuilder` to create a simple response and return. Since my text is pretty simple, I just use the `PlainTextOutputSpeech` object to create my response. For more complex responses where I care about exactly how my response will be spoken, I can use [SSML](https://www.w3.org/TR/speech-synthesis/) and the `SsmlOutputSpeech` object.
+After logging some basic context infomation, I use the Alexa.NET helper `ResponseBuilder` to create a simple response and return. Since my text is pretty simple, I just use the `PlainTextOutputSpeech` object to create my response. For more complex responses where I care about exactly how my response will be spoken, I can use [SSML](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/speech-synthesis-markup-language-ssml-reference) and the `SsmlOutputSpeech` object.
 
 ## Handling SessionEnded Requests
 The application service will receive a SessionEnded request whenever a session is unexpectedly ended. This can happen for one of three  reasons:
@@ -162,5 +162,6 @@ return new SkillResponse()
 
 As you can see, building the intent logic is pretty straight forward. At this point our code can handle two simple intents.  In the next section I'll walk through the code to call the Evoq Liquid Content API.
 
-Previous:   [Building the Basic Alexa Framework](2-1_Create_Basic_Framework.md)
-Next:       [Using the Liquid Content API](2-3_Use_Liquid_Content_API.md)
+**Previous:** [Building the Basic Alexa Framework](2-1_Create_Basic_Framework.md)
+
+**Next:** [Using the Liquid Content API](2-3_Use_Liquid_Content_API.md)

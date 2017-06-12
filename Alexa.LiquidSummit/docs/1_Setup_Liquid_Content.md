@@ -6,7 +6,7 @@
    2. [Building the Application Logic for Alexa](2-2_Create_Application_Logic.md)
    3. [Using the Liquid Content API](2-3_Use_Liquid_Content_API.md)
    4. [Publishing to AWS](2-4_Publishing_Lambda.md)
-   5. [Using the Liquid Content API](2-5_Testing_Lambda_Function.md)
+   5. [Testing the Troubleshooting](2-5_Testing_Lambda_Function.md)
 
 3. [Configuring the Alexa Skill](3_Configure_Alexa_Skill.md)
 
@@ -100,5 +100,6 @@ The last step to complete our site and get it ready for our Alexa skill is to cr
 
 At this point, you should have a site with several person content items defined. You also have a new Event Directions type and a single content item of this type. Finally, you created a new API key that we'll use in our application. You are now ready to begin writing your application code.
 
-Previous:   [Introduction](../Readme.md)
-Next:       [Creating the AWS Lambda Project](2_Create_AWS_Lambda_Project.md)
+**Previous:** [Introduction](../Readme.md)
+
+**Next:** [Creating the AWS Lambda Project](2_Create_AWS_Lambda_Project.md)

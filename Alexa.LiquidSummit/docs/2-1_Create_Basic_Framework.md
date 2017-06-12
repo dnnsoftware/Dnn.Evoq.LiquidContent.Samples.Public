@@ -6,7 +6,7 @@
    2. [Building the Application Logic for Alexa](2-2_Create_Application_Logic.md)
    3. [Using the Liquid Content API](2-3_Use_Liquid_Content_API.md)
    4. [Publishing to AWS](2-4_Publishing_Lambda.md)
-   5. [Using the Liquid Content API](2-5_Testing_Lambda_Function.md)
+   5. [Testing the Troubleshooting](2-5_Testing_Lambda_Function.md)
 
 3. [Configuring the Alexa Skill](3_Configure_Alexa_Skill.md)
 
@@ -140,5 +140,6 @@ The skill we are building is relatively simple so we just need to worry about ha
 
 At this point we have the basic framework that we can use for creating any Alexa skill. Everything from this point forward will focus on dealing with the actual logic of the specific skill we are building.
 
-Previous:   [Creating the AWS Lambda Project](2_Create_AWS_Lambda_Project.md)
-Next:       [Building the Application Logic for Alexa](2-2_Create_Application_Logic.md)
+**Previous:** [Creating the AWS Lambda Project](2_Create_AWS_Lambda_Project.md)
+
+**Next:** [Building the Application Logic for Alexa](2-2_Create_Application_Logic.md)

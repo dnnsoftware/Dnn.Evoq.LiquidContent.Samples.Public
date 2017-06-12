@@ -6,7 +6,7 @@
    2. [Building the Application Logic for Alexa](2-2_Create_Application_Logic.md)
    3. [Using the Liquid Content API](2-3_Use_Liquid_Content_API.md)
    4. [Publishing to AWS](2-4_Publishing_Lambda.md)
-   5. [Using the Liquid Content API](2-5_Testing_Lambda_Function.md)
+   5. [Testing the Troubleshooting](2-5_Testing_Lambda_Function.md)
 
 3. [Configuring the Alexa Skill](3_Configure_Alexa_Skill.md)
 
@@ -91,3 +91,18 @@ When first developing my service, I just made the call to Liquid Content and log
 ![Paste JSON](images/code_paste.png)
 
 In the [sample code](../src/viewmodels/SpeakerContentViewModel.cs), I have simplified the generated classes to remove properties that I don't care about.
+
+The ContentItems API results in our use case, can be represented by three classes: 
+1) a simple class to hold a collection of content items 
+2) a class that holds the meta-data about a content item 
+3) a class that holds the content item details. 
+
+The first two classes will be the same regardless of which content type you are dealing with.  The third class is unique for each content type and contains the fields specific to that content type.
+
+At this point, you understand how all of the code elements fit together. You should be able to create a basic Lambda Function, construct the required Alexa request handlers, and make simple calls to the Liquid Content APIs.  I urge you to download and explore the full working example of the [Liquid Summit code](../src) to get a better understanding of how all the parts fit together.
+
+Once the Lambda function is complete, you will need to upload it to the AWS servers so you can begin testing out your code.  We'll cover that in the next section.
+
+**Previous:** [Building the Application Logic for Alexa](2-2_Create_Application_Logic.md)
+
+**Next:** [Publishing to AWS](2-4_Publishing_Lambda.md)
