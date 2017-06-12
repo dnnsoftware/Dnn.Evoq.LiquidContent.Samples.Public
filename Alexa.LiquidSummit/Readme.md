@@ -47,6 +47,6 @@ The voice engine for Alexa skills is configured using the [Alexa Skills Kit](htt
    2. [Building the Application Logic for Alexa](docs/2-2_Create_Application_Logic.md)
    3. [Using the Liquid Content API](docs/2-3_Use_Liquid_Content_API.md)
    4. [Publishing to AWS](docs/2-4_Publishing_Lambda.md)
-   5. [Using the Liquid Content API](docs/2-5_Testing_Lambda_Function.md)
+   5. [Testing and Troubleshooting](docs/2-5_Testing_Lambda_Function.md)
 
 3. [Configuring the Alexa Skill](docs/3_Configure_Alexa_Skill.md)
