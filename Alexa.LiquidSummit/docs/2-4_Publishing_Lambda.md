@@ -92,3 +92,7 @@ Now that we have a valid AWS profile configured, we are ready to publish our cod
     In the execution settings you should choose the smallest memory footprint that is necessary to execute your code. AWS Lambda is billed based on execution time and memory used. The lower your memory usage, the cheaper it is to use AWS Lambda. Currently, AWS provides 1 million free requests per month and 3.2 million free seconds per month for the 128 (this is the equivelent of running your code for 37 straight days on a single core). For most Alexa applications, this makes AWS Lambda effectively free.
 
 Congratulations! You have now created and published your first AWS Lambda function. However, code development is not done until we can verify that our code is executing correctly. In the next section we'll look at how to test, troubleshoot and debug AWS Lambda functions. 
+
+**Previous:** [Using the Liquid Content API](2-3_Use_Liquid_Content_API.md)
+
+**Next:** [Testing and Troubleshooting](2-5_Testing_Lambda_Function.md)
