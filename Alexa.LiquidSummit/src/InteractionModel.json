@@ -1,0 +1,35 @@
+{
+  "intents": [
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "GetSpeaker",
+      "samples": [
+        "Tell me about the keynote speaker",
+        "Who is the keynote speaker",
+        "Who is giving the keynote",
+        "Tell me about the conference keynote speaker"
+      ],
+      "slots": []
+    },
+    {
+      "name": "SendDirections",
+      "samples": [
+        "Send me directions to the conference",
+        "Send me directions",
+        "Send me conference information"
+      ],
+      "slots": []
+    }
+  ]
+}

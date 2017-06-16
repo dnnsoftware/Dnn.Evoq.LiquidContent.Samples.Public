@@ -1,6 +1,6 @@
 # Use Case / Requisites
 
-The purpose of this project is to create a simple mobile/tablet game that makes use of Liquid Content as data provider.
+The purpose of this project is to create a simple mobile/tablet game that makes use of [Liquid Content](http://www.dnnsoftware.com/cms-features/about-liquid-content) as data provider.
 
 As example the project implements a simplified version of the classic game: 4 Images 1 Word. Here you can find some examples of this kind of game in both Play and App Stores:
 

@@ -1,0 +1,11 @@
+<confirmation-modal ng-class="{show: confirmationModal.show}">
+    <modal>
+        <div class="modal-content">
+            {{confirmationModal.text}}
+        </div>
+        <button-group>
+            <div ng-click="confirmationModal.onConfirm()" class="save">Yes</div>
+            <div ng-click="hideModal()" class="cancel">Cancel</div>
+        </button-group>
+    </modal>
+</confirmation-modal>

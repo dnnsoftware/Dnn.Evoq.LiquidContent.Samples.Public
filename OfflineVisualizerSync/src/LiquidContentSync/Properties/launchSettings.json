@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "LiquidContentSync": {
+      "commandName": "Project",
+      "commandLineArgs": "list"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "intents": [
+    {
+      "intent": "GetSpeaker"
+    },
+    {
+      "intent": "SendDirections"
+    }
+  ]
+}

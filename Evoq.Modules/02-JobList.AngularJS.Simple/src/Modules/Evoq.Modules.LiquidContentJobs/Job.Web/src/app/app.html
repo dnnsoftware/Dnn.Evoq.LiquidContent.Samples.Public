@@ -1,0 +1,9 @@
+<div>
+  <h2>Job List</h2>
+  <job-item ng-repeat="job in jobList">
+    <h3>{{job.details.jobTitle}}</h3>
+    <job-description 
+      ng-bind-html="toTrustedHTML(job.details.description)">
+    </job-description>
+  </job-item>
+</div>

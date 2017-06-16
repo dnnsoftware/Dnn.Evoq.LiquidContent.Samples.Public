@@ -3,12 +3,12 @@
 
 # Introduction
 
-Liquid Content provides a great API to integrate with other applications and system. This tutorial will teach you how to bring Computer Vision and Artificial Intelligence to your Liquid Content.
+[Liquid Content](http://www.dnnsoftware.com/cms-features/about-liquid-content) provides a great API to integrate with other applications and systems. This tutorial will teach you how to bring Computer Vision and Artificial Intelligence to your Liquid Content.
 
 
 ## Business use case
 
-As Content Manager of a big company with content generated daily, I want to improve the process of content item tagging and description taking benefit of the today technologies in Artificial Intelligence and Artificial Vision.
+As a Content Manager of a big company with content generated daily, I want to improve the process of content item tagging and description creation by taking advantage of Artificial Intelligence and Artificial Vision.
 
 **The goal** of our project is to automate the **creation of tags and description** for your Content Items on creation.
 
@@ -17,7 +17,7 @@ As Content Manager of a big company with content generated daily, I want to impr
 
 In this example we have a Content Type called **Image** that has a main field Image that stores the main asset of the Content Item.
 
-Any Content Type has by default a Seo Settings fields as Tags and Description fields.
+Any Content Type has by default fields for SEO Settings, Tags and a Description.
 
 
 ![Content Type definition](docs/images/ContentTypeImage.png)
@@ -29,24 +29,24 @@ The Image content items could be used anywhere, for example as a gallary in a pu
 
 ## Architecture
 
-Liquid Content provides two way API:
+Liquid Content provides a two way API:
 
 1. PULL information: create or read data on demand via http api
-2. PUSH information: it allows you to subscribe to a one or more events and receive a **Web Hook** notification via http.
+2. PUSH information: it allows you to subscribe to one or more events and receive a **Web Hook** notification via http.
 
-To achive our goal we will structure our application in the following 4 steps: 
+To achive our goal, we will structure our application in the following 4 steps: 
 
-1. subscribe to the Content Item Creation Event of Content Items of the specific Image Content Type
-2. when notified we will read the content item, get the main image url field
-3. we will send the image url to Azure Computer Vision API to get tags and caption information
-4. finally we will update the content item adding tags and description fields 
+1. Subscribe to the Content Item Creation Event of Content Items of the specific Image Content Type
+2. When notified, we will read the content item, get the main image url field
+3. We will send the image url to Azure Computer Vision API to get tags and caption information
+4. Finally, we will update the content item adding tags and description fields 
 
 ![Architecture](docs/images/Architecture.png)
 
 # Prerequisites
 
-- Basic knowledge of js and nodejs
-- MS Azure Account
+- Basic knowledge of Javascript and Node.JS
+- Microsoft Azure Account
 
 # Technologies
 
@@ -60,34 +60,34 @@ The following technologies are going to be used in this tutorial:
 
 # Step 1 – Create Subscriber - Azure Function Http Trigger
 
-Let's start to have fun now!!
+Let's start to have fun now!
 
-The first step of our tutorial will be **create our subscriber to the Content Item Creation Event**. 
-In order to registeron on this event we need a public URL that will receive an Http Post request any time a content item is created. For this project we have used Azure Function, but you are free to use any other technology you are familiar with to expose a web api endpoint (this is the great benefit of working with http apis as those that are technology agnostic).
+The first step of our tutorial will be to **create our subscriber to the Content Item Creation Event**. 
+In order to register on this event, we need a public URL that will receive an Http Post request any time a content item is created. For this project we have used an Azure Function, but you are free to use any other technology you are familiar with to expose a web api endpoint (this is the great benefit of working with http apis as those that are technology agnostic).
 
 
 ## 1.1 Create your Azure Function Http Trigger
 
-Go to the Azure portal and after you have created an Azure function account, creates a function selecting the "Generic Web Hook Javascript" template (see image below)
+Go to the Azure portal and after you have created an Azure function account, create a function selecting the "Generic Web Hook Javascript" template (see image below)
 
 ![Create Azure Function Http Trigger](docs/images/CreateAzureFunction.png)
 
-Then pickup a cool name and click the Create button
+Then pick a cool name and click the Create button
 
 ![Create Azure Function Http Trigger](docs/images/CreateAzureFunction2.png)
 
-Once you have done you will see your function showed in the portal like the image below. If this is what you see, then congratulation, you have created your Web Hook Subscriber!!!
+Once you have done this you will see your function in the portal like the image below. If this is what you see, then congratulations, you have created your Web Hook Subscriber!!!
 
 ![Create Azure Function Http Trigger](docs/images/3-AzureFunctionCreated.png)
 
 
 ## 1.2 – Test the Subscriber
 
-Once created the http web hook the next step is to test it and ensure it is working properly. 
+Once created the http web hook is created, the next step is to test it and ensure it is working properly. 
 
 First of all we will simplify the code to just perform a simple echo, returning a 200 http success response with the same data is sent as incoming payload.
 
-Now change the content of the index.js to a very basic code that peform an echo
+Now change the content of the index.js to a very basic code that will peform an echo
 
 ```
 module.exports = function (context, data) {
@@ -104,7 +104,7 @@ Hit the Save button and now let's test it. If everything is setup fine you will 
 
 # Step 2 – Register the Subscribe to Liquid Content
 
-Liquid Content exposes an API to subscribe web hooks (as the one created above). All what you need is to provide the following information to the API:
+Liquid Content exposes an API to subscribe web hooks (as the one created above). All you need is to provide the following information to the API:
 
 1. URL of the web hook
 2. Description
@@ -153,15 +153,15 @@ Also, if you inspect your azure function log you will see that Liquid Content ha
 
 ![Registration Call to Web Hook](docs/images/13-SubscribeWebHookSuccess2.png)
 
-**Great!!! You Rocks!!!**: now any time a Content Item is created in Liquid Content your azure function will be called sending you basic information about the created Content Item.
+**Great!!! You Rock!!!**: now any time a Content Item is created in Liquid Content your Azure function will be called sending you basic information about the created Content Item.
 
 **Important Note**
-To be able to call the Web Hook api you will need to inspect and get the token in the network developer tool tab when visit Liquid Content Persona Bar panel as Admin or Host user. The token created via API KEY does not allow yet to use Web Hook API.
+To be able to call the Web Hook API you will need to inspect and get the token in the network developer tool tab by visiting the Liquid Content Persona Bar panel as Admin or Host user. The token created via API KEY does not support the Webhook API yet.
 
 
 # Step 3 – Implement Auto Tagging integration
 
-Now everything is configured let's start to create our awesome app!!
+Now that everything is configured, let's start to create our awesome app!!
 
 
 ## 3.1 - Get Content Item Id and Content Type Id
@@ -188,9 +188,9 @@ if(contentTypeId !== imageContentTypeId) {
 
 ## 3.2 - Create Content Item Service
 
-Now that we have control over the type of Content Item we process, next step will be build a Content Item service javascript module responsible to read and update a content item given its identifier.
+Now that we have control over the type of Content Item we process, next step will be to build a Content Item service javascript module responsible to read and update a content item given its identifier.
 
-For that we will use API Key and the Content Item API. Also we will use the **npm request** package to perform http calls (see instruction to how install npm packages in azure function here https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-node#node-version-and-package-management).
+For that we will use an API Key and the Content Item API. Also we will use the **npm request** package to perform http calls (see instruction to how install npm packages in azure function here https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-node#node-version-and-package-management).
 
 So, let's add a new file called contentItemsService.js in the azure function project and create two very simple methods getContentItem and updateContentItem. 
 
@@ -321,9 +321,9 @@ module.exports = function (context, data) {
 }
 ```
 
-The above code performs a call to the Liquid Content API and retrieves the content item. Then it inspects its details object and checks for its main image based on the name of the field we have created.
+The above code performs a call to the Liquid Content API and retrieves the content item. Then it inspects the details object and checks for the main image based on the name of the field we have created.
 
-Hit the Save button. Now after you create a content item of type image, you will see your azure function log showing the image url.
+Hit the Save button. After you create a content item of type image, you will see your azure function log showing the image url.
 
 **Important Notes**
 - The name of the field will typically match the name of the field label using a lower camel case format
@@ -334,7 +334,7 @@ Hit the Save button. Now after you create a content item of type image, you will
 
 At this point we have the **image url** we want process. Now it is time to put in place the Artificial Vision Intelligence. For this we are going to use Azure Computer Vision API (https://azure.microsoft.com/es-es/services/cognitive-services/computer-vision/).
 
-Before start, let's ensure you create in your **azure portal** a **Computer Vision API** account (you can go with the free tier) and check the **Subscription KEY** to be able able to get accesso to this API (more info can be found here https://docs.microsoft.com/es-es/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe).
+Before we begin, let's ensure you create in your **azure portal** a **Computer Vision API** account (you can go with the free tier) and check the **Subscription KEY** to be able able to get accesso to this API (more info can be found here https://docs.microsoft.com/es-es/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe).
 
 Let's create a new Service, call it computerVisionService.js. Add this file in azure function and copy the content below:
 
@@ -376,12 +376,12 @@ const computerVisionService = {
 module.exports = computerVisionService;
 ```
 
-The code above is pretty simple. It just expose the **describeImage** method. This takes in input a imageUrl parameter and it performs an http request to the Azure Cognitive API using the Subscription KEY. If everything goes well it will return the json payload of the image analysis perfomed.
+The code above is pretty simple. It just exposes the **describeImage** method. This takes in input from the imageUrl parameter and it performs an http request to the Azure Cognitive API using the Subscription KEY. If everything goes well it will return the json payload of the image analysis perfomed.
 
 
 ## 3.5 - Use Computer Vision Service
 
-Next step is make use of the service created in the previous step. Given the image url we want display in the azure function log the result of the analysis. 
+Next step is make use of the service created in the previous step. Given the image url we want to display in the azure function log the result of the analysis. 
 
 Go into our index.js, then import at the top of the file the new service:
 
@@ -466,7 +466,7 @@ Great!! If you are on this step you are rewarded with awesome AI. Now create a c
 
 ## 3.6 - Update Content Item with Image Tags and Description
 
-This is the last step of the tutorial. In the previous step we got the awesome analysis of our image. Now It is time to store this information back to our Liquid Content system. For this we will need to use the UpdateContentItem method we implemented at the very beginning in our Content Items Service. 
+This is the last step of the tutorial. In the previous step we got the awesome analysis of our image. Now it is time to store this information back to our Liquid Content system. For this we will need to use the UpdateContentItem method we implemented at the very beginning in our Content Items Service. 
 
 So, add now this glue code in your index.js:
 

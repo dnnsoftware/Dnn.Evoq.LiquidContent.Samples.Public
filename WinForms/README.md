@@ -3,7 +3,7 @@
 
 Introduction
 -
-The purpose of “Liquid Content Explorer” is to let users navigate through their various Liquid Content types and items, and view their various sub elements in a Windows Explorer tree like manner.
+The purpose of “Liquid Content Explorer” is to let users navigate through their various [Liquid Content](http://www.dnnsoftware.com/cms-features/about-liquid-content) types and items, and view their various sub elements in a Windows Explorer tree like manner.
 
 Technologies Used
 -
@@ -24,7 +24,7 @@ Steps
 
 Application details
 -
-The application uses Windows forms to read and display the content structure types and items. When loading the application in Visual Studio you should see a window like this one.
+The application uses Windows forms to read and display Liquid Content types and items. When loading the application in Visual Studio you should see a window like this one.
 
 ![Visual Studio Form Design](images/vs1.png)
 

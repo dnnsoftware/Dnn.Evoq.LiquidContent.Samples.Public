@@ -1,0 +1,39 @@
+<div>
+  <header>
+    <h2>Job List</h2>
+    <div ng-hide="mode !== 'edit'" ng-click="togglePanel($event)">{{buttonText}}</div>
+  </header>
+  <div ng-hide="mode !== 'edit'" ng-class="{'form-pane ': !showForm, 'form-pane show': showForm}">
+    <form ng-submit="onSubmit()">
+      <input type="text" placeholder="Job Name" ng-model="formData.jobTitle">
+      <textarea placeholder="Description" ng-model="formData.description"></textarea>
+      <button class="button button-positive" type="submit">
+         Add
+      </button>
+    </form>
+
+  </div>
+  <job-item ng-repeat="job in jobList">
+    <div ng-hide="jobBeingEdited && job.id === jobBeingEdited.id">
+      <h3>{{job.details.jobTitle}}
+        <div class="buttons-group">
+          <div class="remove" ng-hide="mode !== 'edit'" ng-click="onRemove(job)">Remove</div>
+          <div class="edit" ng-hide="mode !== 'edit'" ng-click="onEdit(job)">Edit</div>
+        </div>
+      </h3>
+      <job-description ng-bind-html="toTrustedHTML(job.details.description)"></job-description>
+    </div>
+
+    <div ng-hide="mode !== 'edit' ||!jobBeingEdited || job.id !== jobBeingEdited.id ">
+      <h3>
+        <input type="text" placeholder="Job Name" ng-model="jobBeingEdited.details.jobTitle">
+        <div class="buttons-group">
+          <div class="save" ng-click="onSave(job)">Save</div>
+          <div class="cancel" ng-click="onCancelEdit(job)">Cancel</div>
+        </div>
+      </h3>
+      <textarea placeholder="Description" ng-model="jobBeingEdited.details.description"></textarea>
+    </div>
+
+  </job-item>
+</div>

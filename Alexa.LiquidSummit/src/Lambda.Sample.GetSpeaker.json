@@ -1,0 +1,24 @@
+{
+  "session": {
+    "sessionId": "SessionId.3ef25725-4a95-4ce1-8fa5-b8c58dcf7f09",
+    "application": {
+      "applicationId": "amzn1.ask.skill.ea099eb5-68f6-460c-96a7-82ae467bba8e"
+    },
+    "attributes": {},
+    "user": {
+      "userId": "amzn1.ask.account.AFY46GOKLG7RHRU46VWMQDFITCTO7AEIZII5M5OTPYAMRYEUN7NGBKXSOI3XNRSLEXVU7Q7S2ESXFYOGBAO3LCM6KCSWLD2XXFV7EQ2SAXHMNPKQ2YRWTV2LFEWR7LY5HAZNMNKDFWKA5EU5AH7UJ3JJCGKC7CTMRIMPPMS2DMIYBRVP7FCSGYBL6JMBA5W664QHV6PVSMTGMDQ"
+    },
+    "new": true
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "EdwRequestId.22de83e0-9e1e-4a6d-885f-e0f177088447",
+    "locale": "en-US",
+    "timestamp": "2017-06-05T21:30:59Z",
+    "intent": {
+      "name": "GetSpeaker",
+      "slots": {}
+    }
+  },
+  "version": "1.0"
+}

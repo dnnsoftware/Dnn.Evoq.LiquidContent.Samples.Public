@@ -1,0 +1,5 @@
+<pager ng-hide="pages.length === 1">
+    <ul class="pager">
+        <li ng-repeat="page in pages" ng-class="appliedClass(page)" ng-click="selectPage(page.pageIndex)">{{page.pageNumber}}</li>
+    </ul>
+</pager>
