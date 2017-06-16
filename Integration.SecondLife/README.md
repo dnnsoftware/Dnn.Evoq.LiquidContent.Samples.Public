@@ -3,7 +3,7 @@
 
 ## Background
 
-Several years ago, [Second Life](http://www.secondlife.com)® residents were limited to 25 groups that they can join. Joining groups are necessary for many things, including getting freebies from a vendor, getting access to a parcel or a region, getting permissions to terraform land or modify objects, getting notices about events or new products or store discounts, and many others. Eventually, Second Life increased the allowed number of groups to 42, which is still not enough for some residents.
+Several years ago, [Second Life](http://www.secondlife.com)® residents were limited to 25 groups that they can join. Joining groups is necessary for many things, including getting freebies from a vendor, getting access to a parcel or a region, getting permissions to terraform land or modify objects, getting notices about events or new products or store discounts, and many others. Eventually, Second Life increased the allowed number of groups to 42, which is still not enough for some residents.
 
 ![freebie merchandise that require group membership - Maitreya](images/maitreya-freebie.png)
 **_Figure 1_ - Freebie merchandise like these are usually given away to members of a store group to get customers to come back or to introduce newbies to the brand. Location: http://maps.secondlife.com/secondlife/Maitreya%20Isle/122/190/23 **
