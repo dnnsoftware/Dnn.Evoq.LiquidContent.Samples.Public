@@ -1,7 +1,9 @@
 // ====================================================================================================
 // DNN Subscribo for Second Life
 // © 2017 dnnsoftware.com
-//      v1.0 : 2017 May 10 
+//      v1.0 : 2017 May 10
+//      v1.1 : 2017 Jun 16 - Moved subscription list name to object description. When logo is touched,
+//          displays the currently valid promos.
 // ====================================================================================================
 
 
@@ -9,13 +11,16 @@
 
 integer FACESUBSCRIBE = 0;
 integer FACEUNSUBSCRIBE = 1;
-integer FACEWEBSITE = 3;
+integer FACEPROMOS = 3;
+integer FACERESET = 4;
 integer g_iFace;
 
 string URLDNNSOFTWARE = "http://www.dnnsoftware.com/";
 string TGTDOMAIN = "https://dnnapi.com/content/api";
-string DNNCONTENTTYPEID = "00000000-0000-0000-0000-000000000000";
-string DNNCONTENTTYPENAME = "SL User";
+string DNNUSERCONTENTTYPEID =  "00000000-0000-0000-0000-000000000000";  // "SL User"
+string DNNPROMOCONTENTTYPEID = "00000000-0000-0000-0000-000000000000";  // "SL Promo"
+
+string sImgUrl = "http://...";
 
 list BASIC_HTTP_PARAMETERS = [
     HTTP_MIMETYPE, "application/json",
@@ -24,19 +29,14 @@ list BASIC_HTTP_PARAMETERS = [
     HTTP_CUSTOM_HEADER, "Authorization", "Bearer 00000000000000000000000000000000"
     ];
 
-string MAILANNOUNCEMENTS = "announcements";
+string DEFAULTMAILINGLIST = "Other";
+string g_sMailingList = DEFAULTMAILINGLIST;
+list g_lSubscribeValues = [];
+list g_lWithdrawValues = [];
+list g_lValuesToUpdate = [];
 
-list VALUESTOSUBSCRIBE = [
-    "description", " This is an updated description.", 1,
-    "details,subscriptions", MAILANNOUNCEMENTS, 1
-];
-list VALUESTOWITHDRAW = [
-    "details,subscriptions", MAILANNOUNCEMENTS, -1
-];
-list g_lValuesToUpdate = VALUESTOSUBSCRIBE;
-
-string MSGADDED = "You have been successfully subscribed.";
-string MSGREMOVED = "You have been unsubscribed.";
+string MSGADDED = "You have been successfully subscribed";
+string MSGREMOVED = "You have been unsubscribed";
 string g_sSuccessMsg = "";
 
 string g_sUserJson;
@@ -50,26 +50,16 @@ key t_kHttpReqPost;
 
 float WAITSECS = 60.0;
 
+string HORILINE = "\n----------------------------------------------------------------------------------------------------\n";
+
 
 // Functions ------------------------------------------------------------------------------------------
 
 
-// Notifies with only an OK button.
+// Notifies with only an OK button in a dialog box and repeats in the chat window.
 notifyUser( key kUser, string msg )  {
     llDialog( kUser, msg, [ "OK" ], -123456789 );
-}
-
-
-// Source: http://wiki.secondlife.com/wiki/LlGetRegionName
-string wwGetSLUrl()
-{
-    string globe = "http://maps.secondlife.com/secondlife";
-    string region = llGetRegionName();
-    vector pos = llGetPos();
-    string posx = (string)llRound(pos.x);
-    string posy = (string)llRound(pos.y);
-    string posz = (string)llRound(pos.z);
-    return (globe + "/" + llEscapeURL(region) +"/" + posx + "/" + posy + "/" + posz);
+    llInstantMessage( kUser, HORILINE + msg + HORILINE );
 }
 
 
@@ -81,52 +71,17 @@ string createBody( key kUUID, string sName, string sMailList )  {
         "subscriptions", sMailList
     ];
 
-    list lCreatedBy = [
-        "id", "",
-        "name", llGetObjectName() + " at " + wwGetSLUrl(),
-        "thumbnail", ""
-    ];
-
     list lTags = [
         "SL",
         "Second Life"
     ];
 
-    list lKeywords = [];
-
-    list lImage = [
-        "fileName", "",
-        "fileId", 0,
-        "url", "http://dnn8bml4l.qa.evoqondemand.com/e91-624-1/DnnImageHandler.ashx?mode=profilepic&userId=1&h=64&w=64"
-    ];
-
-     list lSeoSettings = [
-        "pageTitle", sName,
-        "description", "Second Life subscriber in DNN Liquid Content",
-        "keywords", llList2Json( JSON_ARRAY, lKeywords ),
-        "image", llList2Json( JSON_OBJECT, lImage )
-     ];
-
     list lRet = [
-        "id", "",
-        "slug", sName,
-        "contentTypeId", DNNCONTENTTYPEID,
-        "contentTypeName", DNNCONTENTTYPENAME, 
+        "contentTypeId", DNNUSERCONTENTTYPEID,
         "name", sName,
         "description", "",
         "details", llList2Json( JSON_OBJECT, lDetails ),
-        "language", "en",
-        "alreadyPublished", "true",
-        "currentVersion", 1,
-        "usages", 0,
-        "createdAt", llGetTimestamp(),
-        "createdBy", llList2Json( JSON_OBJECT, lCreatedBy ),
-        "updatedAt", "",
-        "updatedBy", "",
-        "stateId", 0,
-        "tags", llList2Json( JSON_ARRAY, lTags ),
-        "clientReferenceId", "",
-        "seoSettings", llList2Json( JSON_OBJECT, lSeoSettings )
+        "tags", llList2Json( JSON_ARRAY, lTags )
     ];
 
     return( llList2Json( JSON_OBJECT, lRet ) );
@@ -137,7 +92,7 @@ string createBody( key kUUID, string sName, string sMailList )  {
 // lKeyValuePairs is a strided list, where each stride contains:
 //  * key - A comma-separated string of the components to the correct node.
 //  * value - The new value for the key.
-//  * action - 0 to override; 1 to append the new value, separated by a comma; -1 to remove the value.
+//  * action - 0 to override; 1 to append the new value, separated by a comma; 2 to append the new value to an array; -1 to remove the value; -2 to remove the value from an array.
 // Unmentioned nodes are retained as is.
 string updateBody( string sJson, list lKeyValuePairs )  {
     list lPath;
@@ -152,31 +107,57 @@ string updateBody( string sJson, list lKeyValuePairs )  {
         lPath = llParseString2List( llList2String( lKeyValuePairs, i ), [","], [] );
         sNewVal = llList2String( lKeyValuePairs, i + 1 );
         iAct = llList2Integer( lKeyValuePairs, i + 2 );
-        
-        sOldVal = llJsonGetValue( sJson, lPath );
-        if (( iAct != 0 ) && ( sOldVal != "" )) {
-            // Get the old value.
+
+        // Add to array
+        if ( iAct == 2 )  {
+            // Get the old value (array).
+            sOldVal = llJsonGetValue( sJson, lPath );
             lOldVal = llJson2List( sOldVal );
-            
+
             // Is the new value already there?
             index = llListFindList( lOldVal, [ sNewVal ] );
-            
+
             // Append if not yet in lOldVal. If already there, no need do anything.
-            if ( iAct == 1 )  {
-                if ( index == -1 )  {
-                    lOldVal += [ sNewVal ];
-                    sNewVal = llList2Json( JSON_ARRAY, lOldVal );
-                }
-            }
-            
-            // Remove from lOldVal. If not there, no need to do anything.
-            else if ( iAct == -1 )  {
-                if ( index > -1 )  {
-                    lOldVal = llDeleteSubList( lOldVal, index, index );
-                    sNewVal = llList2Json( JSON_ARRAY, lOldVal );
-                }
+            if ( index == -1 )  {
+                lOldVal += [ sNewVal ];
+                sNewVal = llList2Json( JSON_ARRAY, lOldVal );
             }
         }
+
+        // Append (duplicates ok)
+        else if ( iAct == 1 )  {
+            // Get the old value (string).
+            sOldVal = llJsonGetValue( sJson, lPath );
+            sNewVal = sOldVal + "," + sNewVal;
+        }
+
+        // Override
+        else if ( iAct == 0 )  {
+            // Keep the value of sNewVal.
+        }
+
+        // Delete
+        else if ( iAct == -1 )  {
+            sNewVal = "";
+        }
+
+        // Remove from array
+        else if ( iAct == -2 )  {
+            // Get the old value (array).
+            sOldVal = llJsonGetValue( sJson, lPath );
+            lOldVal = llJson2List( sOldVal );
+
+            // Is the new value already there?
+            index = llListFindList( lOldVal, [ sNewVal ] );
+
+            // Remove from lOldVal. If not there, no need to do anything.
+            if ( index > -1 )  {
+                lOldVal = llDeleteSubList( lOldVal, index, index );
+                sNewVal = llList2Json( JSON_ARRAY, lOldVal );
+            }
+        }
+
+        // Replace the value in the JSON.
         sJson = llJsonSetValue( sJson, lPath, sNewVal );
     };
     return(sJson);
@@ -199,6 +180,17 @@ string getRecord( string sBody, list lKeyPath, string sValue )  {
 }
 
 
+// Prints the body of the message. For debugging.
+DEBUG_PrintBody2Owner( string sIntro, string sBody )  {
+    llOwnerSay( "DEBUG: " + sIntro );
+    list lLines = llParseString2List( sBody, [ "\n" ], [] );
+    integer i;
+    for ( i = 0; i < llGetListLength( lLines ); i++ )  {
+        llOwnerSay( llList2String( lLines, i ) );
+    }
+}
+
+
 
 // States ---------------------------------------------------------------------------------------------
 
@@ -207,10 +199,30 @@ default
     state_entry()  {
         state waiting;
     }
-
 }
 
 state waiting {
+    state_entry()  {
+        string sDesc = llGetObjectDesc();
+        if ( g_sMailingList != sDesc )  {
+            g_sMailingList = sDesc;
+            if ( g_sMailingList == "" )  {
+                g_sMailingList = DEFAULTMAILINGLIST;
+            }
+            // See comments in the definition of updateBody().
+            g_lSubscribeValues = [
+                "description", " This is an updated description.", 0,  // override
+                "details,subscriptions", g_sMailingList, 2  // add to array
+            ];
+            g_lWithdrawValues = [
+                "details,subscriptions", g_sMailingList, -2  // remove from array
+            ];
+            g_lValuesToUpdate = g_lSubscribeValues;
+
+            llSay( 0, "Ready for subscriptions to '" + g_sMailingList + "'...." );
+        }
+    }
+
     touch_end( integer n )  {
         // Who touched?
         t_kUserUUID = llDetectedKey( 0 );
@@ -218,19 +230,28 @@ state waiting {
 
         // Which side was touched?
         g_iFace = llDetectedTouchFace( 0 );
+
         if ( g_iFace == FACESUBSCRIBE )  {
-            g_lValuesToUpdate = VALUESTOSUBSCRIBE;
-            g_sSuccessMsg = MSGADDED;
+            g_lValuesToUpdate = g_lSubscribeValues;
+            g_sSuccessMsg = MSGADDED + " to " + g_sMailingList + ".";
             state userget;
         }
 
         else if ( g_iFace == FACEUNSUBSCRIBE )  {
-            g_lValuesToUpdate = VALUESTOWITHDRAW;
-            g_sSuccessMsg = MSGREMOVED;
+            g_lValuesToUpdate = g_lWithdrawValues;
+            g_sSuccessMsg = MSGREMOVED + " from \"" + g_sMailingList + "\".";
             state userget;
         }
 
-        else // if ( g_iFace == FACEWEBSITE ) or any other side.
+        else if ( g_iFace == FACEPROMOS )  {
+            state promoget;
+        }
+
+        else if ( g_iFace == FACERESET )  {
+            llResetScript();
+        }
+
+        else // any other side
             llLoadURL( t_kUserUUID, "DNN Software corporate website", URLDNNSOFTWARE );
     }
 }
@@ -240,7 +261,7 @@ state userget {
     state_entry()  {
         g_sUserJson = "";
         t_kHttpReqGet = llHTTPRequest(
-            TGTDOMAIN + "/ContentItems?name=" + (string) t_sUsername,
+            TGTDOMAIN + "/ContentItems?contentTypeId=" + (string) DNNUSERCONTENTTYPEID,
             BASIC_HTTP_PARAMETERS + [ HTTP_METHOD, "GET" ],
             "" );
         llSetTimerEvent( WAITSECS );
@@ -256,14 +277,9 @@ state userget {
                 // Look for the node under "documents" where "name" == t_sUsername
                 g_sUserJson = getRecord( body, [ "name" ], t_sUsername );
 
-                // If found.
+                // If found, extract the important information.
                 if ( g_sUserJson != "" )  {
-
-                    // Extract the important information.
                     t_kDNNID = llJsonGetValue( g_sUserJson, [ "id" ] );
-                    string sName = llJsonGetValue( g_sUserJson, [ "name" ] );
-                    string sUUID = llJsonGetValue( g_sUserJson, [ "details", "sLUUID" ] );
-
                     state userput;
                 }
 
@@ -271,11 +287,10 @@ state userget {
                 else
                     state userpost;
             }
-            
+
             // If something went wrong.
             else  {
                 notifyUser( t_kUserUUID, "Something went wrong. Please try again. (GET status: " +  (string) status + ")" );
-                llOwnerSay( "DEBUG: message body (GET): \n" + body );
                 state waiting;
             }
         }
@@ -296,7 +311,7 @@ state userget {
 // Create a new SL User content item with a POST.
 state userpost {
     state_entry()  {
-        string sPostStr = createBody( t_kUserUUID, t_sUsername, MAILANNOUNCEMENTS );
+        string sPostStr = createBody( t_kUserUUID, t_sUsername, g_sMailingList );
 
         t_kHttpReqPost = llHTTPRequest(
             TGTDOMAIN + "/ContentItems?publish=true",
@@ -312,13 +327,12 @@ state userpost {
             // If successful.
             if (( status >= 200 ) && ( status < 300 ))
                 notifyUser( t_kUserUUID, g_sSuccessMsg + " (POST status: " +  (string) status + ")" );
-            
+
             // If something went wrong.
             else {
                 notifyUser( t_kUserUUID, "Something went wrong. Please try again. (POST status: " +  (string) status + ")" );
-                llOwnerSay( "DEBUG: message body (POST): \n" + body );
             }
-            
+
             state waiting;
         }
     }
@@ -369,7 +383,6 @@ state userput {
             // If something went wrong.
             else  {
                 notifyUser( t_kUserUUID, "Something went wrong. Please try again. (GET SPECIFIC status: " +  (string) status + ")" );
-                llOwnerSay( "DEBUG: message body (GET SPECIFIC): \n" + body );
                 state waiting;
             }
         }
@@ -386,7 +399,64 @@ state userput {
             // If something went wrong.
             else  {
                 notifyUser( t_kUserUUID, "Something went wrong. Please try again. (PUT status: " +  (string) status + ")" );
-                llOwnerSay( "DEBUG: message body (PUT): \n" + body );
+            }
+
+            state waiting;
+        }
+    }
+
+    timer()  {
+        notifyUser( t_kUserUUID, "The server did not respond within " + (string) WAITSECS + " seconds. Please try again." );
+        llSetTimerEvent( 0 );
+        state waiting;
+    }
+
+    state_exit()  {
+        llSetTimerEvent( 0 );
+    }
+}
+
+
+// Show current promos or news.
+state promoget {
+    state_entry()  {
+        t_kHttpReqGet = llHTTPRequest(
+            TGTDOMAIN + "/ContentItems?ContentTypeId=" + (string) DNNPROMOCONTENTTYPEID,
+            BASIC_HTTP_PARAMETERS + [ HTTP_METHOD, "GET" ],
+            "" );
+        llSetTimerEvent( WAITSECS );
+    }
+
+    http_response( key request_id, integer status, list metadata, string body )  {
+        if ( request_id == t_kHttpReqGet )  {
+            llSetTimerEvent( 0 );
+
+            // Parse the response.
+            if (( status >= 200 ) && ( status < 300 ))  {
+                string sItems = llJsonGetValue( body, [ "documents" ] );
+                string sCurrItem;
+                integer iStart;
+                integer iEnd;
+                integer iNow = llGetUnixTime();
+                list lItems = llJson2List( sItems );
+                integer i;
+                for ( i = 0; i < llGetListLength( lItems ); i++ )  {
+                    sCurrItem = llList2String( lItems, i );
+
+                    iStart = (integer) llJsonGetValue( sCurrItem, [ "details", "startDate" ] );
+                    iEnd   = (integer) llJsonGetValue( sCurrItem, [ "details", "endDate" ] );
+
+                    if (( iStart <= iNow  ) && ( iNow <= iEnd ))  {
+                        string sTitle = llJsonGetValue( sCurrItem, [ "name" ] );
+                        string sMsg = llJsonGetValue( sCurrItem, [ "details", "promoDescription" ] );
+                        notifyUser( t_kUserUUID, sTitle + " " + sMsg );
+                    }
+                }
+            }
+
+            // If something went wrong.
+            else  {
+                notifyUser( t_kUserUUID, "Something went wrong. Please try again. (GET status: " +  (string) status + ")" );
             }
 
             state waiting;

@@ -3,7 +3,7 @@
 
 ## Background
 
-Several years ago, [Second Life](http://www.secondlife.com)® residents were limited to 25 groups that they can join. Joining groups were necessary for many things, including getting freebies from a vendor, getting access to a parcel or a region, getting permissions to terraform land or modify objects, getting notices about events or new products or store discounts, and many others. Eventually, Second Life increased the allowed number of groups to 42, which is still not enough for some residents.
+Several years ago, [Second Life](http://www.secondlife.com)® residents were limited to 25 groups that they can join. Joining groups are necessary for many things, including getting freebies from a vendor, getting access to a parcel or a region, getting permissions to terraform land or modify objects, getting notices about events or new products or store discounts, and many others. Eventually, Second Life increased the allowed number of groups to 42, which is still not enough for some residents.
 
 ![freebie merchandise that require group membership - Maitreya](images/maitreya-freebie.png)
 **_Figure 1_ - Freebie merchandise like these are usually given away to members of a store group to get customers to come back or to introduce newbies to the brand. Location: http://maps.secondlife.com/secondlife/Maitreya%20Isle/122/190/23 **
@@ -20,7 +20,25 @@ This also allows merchants to review their sales without having to do much bookk
 
 ## DNN Subscribo
 
-The DNN Subscribo is a basic subscribo, that uses Liquid Content™ to store customer information as content items. This product can be expanded into an inworld vendor that is also a sales and customer tracking system.
+The DNN Subscribo is a basic subscribo, that uses Liquid Content™ to store customer information and announcements as content items.
+
+- The name of the subscription list is stored in the inworld object's description, so that multiple subscribos for different subscription lists can easily be set up.
+
+- When an *unknown* user clicks the *SUBSCRIBE* button, a content item of the type *SL User* is created.
+  - The SL username becomes the name of the content item.
+  - The SL UUID is saved in a text field.
+  - The subscription list for that subscribo is selected.
+
+- When an *existing* user clicks the *SUBSCRIBE* button, ...
+  - If the user is already a member of that subscription list, no change in subscription.
+  - If the user is not yet a member, that subscription list is selected.
+  - In both cases, the content item description is changed. (hardcoded for demo purposes)
+
+- When an existing user clicks the *UNSUBSCRIBE* button, the subscription list for that subscribo is deselected. (The user is not deleted.)
+
+- When anyone (not necessarily a subscriber) clicks the logo, the currently active promos are displayed.
+
+This product can be expanded into an inworld vendor that is also a sales and customer tracking system.
 
 
 ## Components
@@ -28,18 +46,26 @@ The DNN Subscribo is a basic subscribo, that uses Liquid Content™ to store cus
 On the DNN side:
 
 - A content type to track subscribers:
-  - The SL username can be used as the content item name. This will also be used to search for a specific subscriber (content item), if the content item ID is not known.
+  - The SL username can be used as the content item name.
   - A single-line field to hold the SL UUID of the subscriber. This UUID is required by many Second Life APIs for private communications, product delivery, etc.
-  - A multiple-choice field for mailing lists. Allow users to choose more than one, or set to **Checkboxes**.
+  - A multiple-choice field for mailing lists. Set to **Checkboxes**.
   ![Screenshot of a content type definition in Evoq](images/contenttypescreenshot.png)
   **_Figure 3_ - Content Type for the subscriber information.**
 
+- A content type to store the promos:
+  - The name/title of the promo can be used as the content item name.
+  - Start datetime and end datetime define the time span when the promo is active.
+  - A multi-line text for the description of the promo.
+
+
 On the Second Life side:
 
-- A textured cube, that is configured so that:
+- A textured cube:
   - Face #0 serves as the SUBSCRIBE button,
-  - Face #1 serves as the UNSUBSCRIBE button, and
-  - Face #3 displays the company logo.
+  - Face #1 serves as the UNSUBSCRIBE button,
+  - Face #3 (company logo) serves as the button to notify the user of current promos, and
+  - Face #4 (left-hand side) serves as the script reset button, and
+  - Faces #2 (right-hand side) and #5 (back side) will load the dnnsoftware.com site in the user's chosen browser.
   ![A textured and tortured cube in Second Life with settings](images/prim-settings.png)
   **_Figure 4_ - Settings for our cube as described.**
 
@@ -72,8 +98,10 @@ The following are the DNN-related variables used by the script:
 ``` Linden Scripting Language
 string URLDNNSOFTWARE = "http://www.dnnsoftware.com/";
 string TGTDOMAIN = "https://dnnapi.com/content/api";
-string DNNCONTENTTYPEID = "00000000-0000-0000-0000-000000000000";
-string DNNCONTENTTYPENAME = "SL User";
+string DNNUSERCONTENTTYPEID =  "00000000-0000-0000-0000-000000000000";  // "SL User"
+string DNNPROMOCONTENTTYPEID = "00000000-0000-0000-0000-000000000000";  // "SL Promo"
+
+string sImgUrl = "http://...";
 
 list BASIC_HTTP_PARAMETERS = [
     HTTP_MIMETYPE, "application/json",
@@ -82,7 +110,7 @@ list BASIC_HTTP_PARAMETERS = [
     HTTP_CUSTOM_HEADER, "Authorization", "Bearer 00000000000000000000000000000000"
     ];
 ```
-**NOTE:** You must replace the `DNNCONTENTTYPEID` with the UUID of the content type you create in your DNN site. You must also replace the "Bearer" UUID with [your own API key](https://www.dnnsoftware.com/docs/administrators/structured-content/create-api-key.html).
+**NOTE:** You must replace the `DNNUSERCONTENTTYPEID` and `DNNPROMOCONTENTTYPEID` with the UUIDs of the content types you create in your DNN site. You must also replace the "Bearer" UUID with [your own API key](https://www.dnnsoftware.com/docs/administrators/structured-content/create-api-key.html).
 
 
 The following are the HTTP Requests:
@@ -90,7 +118,7 @@ The following are the HTTP Requests:
 **GET using a query**
 ``` Linden Scripting Language
 t_kHttpReqGet = llHTTPRequest(
-    TGTDOMAIN + "/ContentItems?name=" + (string) t_sUsername,
+    TGTDOMAIN + "/ContentItems?ContentTypeId=" + (string) DNNPROMOCONTENTTYPEID,
     BASIC_HTTP_PARAMETERS + [ HTTP_METHOD, "GET" ],
     "" );
 ```
@@ -139,7 +167,9 @@ To parse the JSON structure returned in the HTTP Response, insert the parsing co
 
 1. In Evoq, create a content type and an API key.
 
-    1. [Create a content type](http://www.dnnsoftware.com/docs/administrators/structured-content/create-content-type.html). _See Figure 3._
+    1. [Create an API key](https://www.dnnsoftware.com/docs/administrators/structured-content/create-api-key.html).
+
+    2. [Create a content type for users](http://www.dnnsoftware.com/docs/administrators/structured-content/create-content-type.html). _See Figure 3._
         1. Set the content type name to *SL User*.
         2. Create the following fields:
             1. (Single-line)  Name: *SL UUID*
@@ -147,8 +177,6 @@ To parse the JSON structure returned in the HTTP Response, insert the parsing co
                 Appearance: Checkboxes
                 Choices: *inactive*, *customer*, *creator*, *announcements*, *gifts*, etc.
                 (The script uses *announcements*.)
-
-    2. [Create an API key](https://www.dnnsoftware.com/docs/administrators/structured-content/create-api-key.html).
 
 2. In a graphics program, create a square texture.
 
@@ -179,14 +207,14 @@ To parse the JSON structure returned in the HTTP Response, insert the parsing co
     3. Create a new script.
         1. Create a new script in the Contents tab of the object or in your inventory.
         2. Copy and paste the LSL code to the script you created (replacing the default code) and save.
-        3. In the script, replace:
-            * The Content Type ID (DNNCONTENTTYPEID variable in Line 17/16).
-            * The API key (HTTP\_CUSTOM\_HEADER number at the end of Line 24/23).
-            (Note that the LSL editor inworld starts with Line 0 as the first line.)
-            Both of these numbers are linked to your Evoq site.
+        3. In the script, replace the values for the following:
+            * DNNUSERCONTENTTYPEID - The identifier for the *SL User" content type.
+            * DNNPROMOCONTENTTYPEID - The identifier for the *SL Promo" content type.
+            * BASIC_HTTP_PARAMETERS > HTTP_CUSTOM_HEADER - The API key after "Bearer".
+            NOTE: These numbers differ for every Evoq site.
         4. You can make additional changes as you wish.
 
-    4. Set the permissions of the script and the object itself.
+    4. Set the permissions of the script and the object itself as needed. Recommended: Copy only for both the subscribo object and the script.
 
 
 ## Related links
