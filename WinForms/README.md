@@ -29,7 +29,7 @@ The application uses Windows forms to read and display Liquid Content types and 
 ![Visual Studio Form Design](images/vs1.png)
 
 The solution is composed of two projects:
-1. Windows Form project (*LiquidContentExplorer**which contains the views and UI
+1. Windows Form project (*LiquidContentExplorer*) which contains the views and UI
 2. The Structured-Content Models project (*StructuredContent.Models*) which contains the .NET classes representing the entities stored in SC
 
 The values for the text boxes (A) and (B) are filled with values obtained from the "App.config" file as in the following image.
@@ -55,3 +55,5 @@ Note: that when deserializing the content types in step 2 above, you need to use
 Conclusion
 -
 As can be seen from above, it’s very easy to build an App using EVOQ Liquid Content. All that’s needed is the steps above.
+
+For more samples and ways to interact with Liquic Dontent visit [Explore What’s Possible with Liquid Content](http://www.builtwithdnn.com/).
