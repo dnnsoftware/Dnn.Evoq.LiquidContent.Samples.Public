@@ -28,7 +28,7 @@ export interface IAppState {
     result: string;
 }
 
-export class App extends React.Component<undefined, IAppState> {
+export class App extends React.Component<any, IAppState> {
     constructor() {
         super();
         this.state = {
